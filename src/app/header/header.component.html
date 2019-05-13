@@ -2,9 +2,18 @@
   <nav>
 
     <div class="row justify-content-between">
+      <div class="col-3">
 
-      <div class="col-6">
+      </div>
+      <div class="col-4">
         <img class="filmbutiken-logo" src="assets/images/movie-logo.jpg" alt="First slide" title="movie shop logo">
+      </div>
+      <div class="col-3">
+        <h2>cart:</h2>
+        <p *ngFor="let singleMovie of cart">
+          Name: {{singleMovie.movie.name}}<br>
+          Amount: {{singleMovie.amount}} <br>
+        </p>
       </div>
 
     </div>
@@ -13,6 +22,5 @@
     <a routerLink="/details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</a>
     <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> -->
   </nav>
-
   
 </header>

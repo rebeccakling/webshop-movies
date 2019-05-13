@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductpresentationComponent } from './productpresentation/productpresentation.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+
 
 
 @NgModule({
@@ -17,8 +17,8 @@ import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
     ShowmoviesComponent,
     ProductpresentationComponent,
     HeaderComponent,
-    FooterComponent,
-    AddToCartComponent
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
