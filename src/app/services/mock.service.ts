@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import {Observable, of} from 'rxjs';
 import { IDataService } from '../interfaces/IDataService';
+import { ICartProduct } from '../interfaces/ICartProduct';
 
 
 
@@ -10,7 +11,6 @@ import { IDataService } from '../interfaces/IDataService';
 })
 export class MockDataService implements IDataService {
   
-
   movies: IMovie[] = [
     {
       id:76,

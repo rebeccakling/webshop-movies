@@ -1,17 +1,21 @@
-<div class="frameMovies">
-<img class="image " src="{{product.imageUrl}}" alt="{{product.name}}" 
-/></div><br>
+<li>
+    <div class="row justify-content-center">
+        <div class="col-12 frameMovies ">
+            <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" /> </div>
+    </div>
+    <div class="row justify-content-between">
+        <div class=" col-12 text-center text-lg-left">
+            <strong>{{product.name}}</strong><br />
+        </div>
+        <div class=" col-12 text-center  col-lg-4 text-lg-left">
+            <strong>{{product.price}} sek</strong><br />
+        </div>
+        <div class=" col-12 text-center col-lg-8 text-lg-right ">
+            <button type="button" (click)="addMovieToCart(product)" class="btn addToCard">Add to cart</button>
+        </div>
+    </div>
 
-
-<strong>{{product.name}}</strong><br />
-<hr>
-
-<div>
-<strong>price: </strong> {{product.price}}
-<button (click)="addMovieToCart()">Add to cart</button>
-</div>
-
-
+</li>
 
 <!-- vill göra en liknande som nedan för att komma till en ny url med bara info om den filmen vi klickat på -->
 <!-- <a [routerLink]="['/details', korven.id]" routerLinkActive="active">Mer info</a> (Jag kommer inte ha det)-->

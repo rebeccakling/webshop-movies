@@ -1,13 +1,7 @@
-
-
-
-
-
-@media (min-width: 768px) {
-       
-
+.cardMovie {
+    /* border: 1px solid black; */
+    padding: 0;
 }
 
-@media (min-width: 992px) { 
-    
-}
+
+

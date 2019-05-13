@@ -1,5 +1,8 @@
 
 <ul class="row">
-    <app-productpresentation *ngFor="let movie of moviesArray" [product]="movie" (remove)="removeIt($event)" class=" card col-6 col-md-4 col-lg-3"></app-productpresentation>
-
+    <app-productpresentation *ngFor="let movie of moviesArray" [product]="movie" class="cardMovie col-6 col-md-3"></app-productpresentation>
 </ul>
+<!-- 
+(remove)="removeIt($event)
+
+<app-add-to-cart></app-add-to-cart> -->
