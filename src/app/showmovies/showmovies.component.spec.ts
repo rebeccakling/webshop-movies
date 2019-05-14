@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataServiceService } from '../services/data-service.service';
 import { MockDataService } from '../services/mock.service';
 import { ProductpresentationComponent } from '../productpresentation/productpresentation.component';
-
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ShowmoviesComponent', () => {
   let component: ShowmoviesComponent;
@@ -13,7 +13,8 @@ describe('ShowmoviesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ShowmoviesComponent, ProductpresentationComponent ],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, RouterTestingModule]
+
     })
     // SPC har providern DataService från spc.ts, här overridear vi den och använder MockdataService när vi gör våra tester.
     .overrideComponent(ShowmoviesComponent, { set: { providers: [{ provide: DataServiceService, useClass: MockDataService }]}})

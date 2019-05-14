@@ -1,7 +1,10 @@
 <li>
     <div class="row justify-content-center">
         <div class="col-12 frameMovies ">
-            <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" /> </div>
+            <a [routerLink]="['/details', product.id]">
+                <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" />
+            </a>
+     </div>
     </div>
     <div class="row justify-content-between">
         <div class=" col-12 text-center text-lg-left">
