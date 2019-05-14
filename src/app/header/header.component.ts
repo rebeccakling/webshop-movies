@@ -46,6 +46,10 @@ export class HeaderComponent implements OnInit {
       // console.log(movieToAdd.id);
       // console.log(movieToAdd.name);
     }
-
+    this.saveCartToLocalStorage();
+ 
+  }
+  saveCartToLocalStorage(){
+    localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
   }
 }
