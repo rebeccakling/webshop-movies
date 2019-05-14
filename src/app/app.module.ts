@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductpresentationComponent } from './productpresentation/productpresentation.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -17,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     ShowmoviesComponent,
     ProductpresentationComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DetailsComponent
 
   ],
   imports: [

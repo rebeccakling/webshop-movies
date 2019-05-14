@@ -3,14 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
 
-  getData():Observable<IMovie[]>{
-    return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
+  fetchMovies():Observable<IMovie[]>{
+    return this.httpClient.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
 
-  constructor(private http: HttpClient) { }
+  fetchSingleMovie(id): Observable<IMovie[]>{
+    return this.httpClient.get<IMovie[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + id);
+  }
+
+ 
+
+  
+
+  constructor(private httpClient: HttpClient) { }
 }
