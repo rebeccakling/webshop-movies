@@ -1,0 +1,54 @@
+.frameMovies {
+    height: 200px;
+    width: 0 auto; 
+    overflow: hidden; 
+   
+}
+.image {
+    object-fit: cover;
+    height: 200px; 
+    width: 0 auto;
+    overflow: hidden;
+}
+
+li {
+   list-style: none;
+}
+
+.addToCard {
+    background-color: #cb7713;
+    color: white;
+    margin-bottom: 5px; 
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+    .frameMovies {
+        height: 300px;
+   
+       
+       
+    }
+    .image {
+        height: 300px;  
+    
+    }    
+
+}
+
+@media screen and (min-width: 992px) { 
+
+    .frameMovies {
+        height: 450px;
+       
+       
+       
+    }
+    .image {
+        height: 450px;  
+      
+    }  
+ 
+}
