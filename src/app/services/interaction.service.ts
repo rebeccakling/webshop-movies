@@ -11,7 +11,7 @@ export class InteractionService {
 
   cart: ICartProduct[] = [];
 
-  movieSourcen$ = this.movieSourcen.asObservable();
+  movieSource$ = this.movieSourcen.asObservable();
   sendMovie(product: IMovie) {
     this.movieSourcen.next(product);
   }

@@ -49,7 +49,13 @@ export class MockDataService implements IDataService {
     ]
 
   constructor() { }
+
   fetchMovies(): Observable<IMovie[]> {
     return of (this.movies);
   }
+
+  fetchSingleMovie(id): Observable<IMovie>{
+    return of(this.movies[0]);
+  }
+  
 }

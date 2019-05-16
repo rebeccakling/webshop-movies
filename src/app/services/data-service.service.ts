@@ -17,8 +17,6 @@ export class DataServiceService {
     return this.httpClient.get<IMovie[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + id);
   }
 
- 
-
   
 
   constructor(private httpClient: HttpClient) { }

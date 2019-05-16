@@ -13,20 +13,19 @@ export class HeaderComponent implements OnInit {
 
   cart: ICartProduct[] = [];
 
+
   //Får jag tillgång till det som finns i interactionService-klassen
   constructor(private interactionService: InteractionService) { }
 
-  //addMovie(movie: ICartProduct) {//Hjälp av filip
-  // this.cart.push(movie);
-  // }
-
   ngOnInit() {
-    this.interactionService.movieSourcen$.subscribe(
+    this.interactionService.movieSource$.subscribe(
       info => {
         this.addToCart(info);
 
       }
     )
+    //this.saveCartToLocalStorage();
+    this.printCart();
   }
 
   addToCart(movieToAdd: IMovie) {
@@ -46,10 +45,23 @@ export class HeaderComponent implements OnInit {
       // console.log(movieToAdd.id);
       // console.log(movieToAdd.name);
     }
+
     this.saveCartToLocalStorage();
- 
+
   }
-  saveCartToLocalStorage(){
+
+  saveCartToLocalStorage() {
     localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
+
+    this.printCart();
+  }
+
+  printCart() {
+    if(localStorage.getItem('myCartLocalStorage') === null){
+      this.cart = [];
+    }else {
+      let fetchLocalStorageCart = localStorage.getItem('myCartLocalStorage');
+      this.cart = JSON.parse(fetchLocalStorageCart);
+    }
   }
 }
