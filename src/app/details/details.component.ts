@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../services/data-service.service';
+import { InteractionService } from '../services/interaction.service';
 
 
 
@@ -13,7 +14,9 @@ export class DetailsComponent implements OnInit {
 
 singleMovie;
 
-constructor(private route: ActivatedRoute, private service: DataServiceService) { }
+constructor(private route: ActivatedRoute, private service: DataServiceService, private interactionService: InteractionService) { }
+
+
 
 ngOnInit() {
   this.route.paramMap.subscribe(myParams => {
@@ -23,6 +26,12 @@ ngOnInit() {
       this.singleMovie = data;
     });
   });
+}
+
+
+addMovieToCart(product) {
+  console.log(product);
+  this.interactionService.sendMovie(product);
 }
 
 }
