@@ -10,7 +10,7 @@
       <div class="col-6 text-right">
         <i class="fas fa-shopping-cart icon" (click)="dropDownMovieCart()"></i>
         <div class="dropDownCart text-left" *ngIf="showShopphingCart">
-          <h2>My cart:</h2>
+          <h2>Min varukorg:</h2>
           <hr>
           <p *ngFor="let singleMovie of cart">
             <strong>Title: {{singleMovie.movie.name}}</strong>,<br>
@@ -26,7 +26,7 @@
           <strong>Total Summa: {{totalSum}} </strong>sek
           <br>
 
-          <p button type="buttonSendToCheckout" [routerLink]="['/submit']" class="buttonCheckout">Gå vidare</button></p>
+          <button type="buttonSendToCheckout" [routerLink]="['/submit']" class="buttonCheckout">Gå vidare</button>
 
           <!-- <a [routerLink]="['/details', product.id]">
             <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" />

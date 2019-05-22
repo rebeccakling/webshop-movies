@@ -1,3 +1,10 @@
-<h2>{{singleMovie.name}}</h2>
-<img src="{{singleMovie.imageUrl}}" alt="">
-<div>{{singleMovie.description}}</div>
+<div class="row justify-content-center">
+    <div class="col-12 text-center">
+        <h1>{{singleMovie.name}}</h1><br>
+        <img class="descriptionMovie" src="{{singleMovie.imageUrl}}" alt="{{singleMovie.name}}">
+        <p>{{singleMovie.description}}</p>
+        <p>{{singleMovie.price}}:-</p>
+
+        <button type="button" (click)="addMovieToCart(product)" class="btn addToCard">Lägg till</button>
+    </div>
+</div>
