@@ -10,7 +10,6 @@ import { InteractionService } from '../services/interaction.service';
 export class ProductpresentationComponent implements OnInit {
 
   @Input() product: IMovie;
-  // @Output() remove = new EventEmitter <number>();
 
   constructor(private interactionService: InteractionService) { }
 

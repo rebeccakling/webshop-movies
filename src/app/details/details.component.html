@@ -4,7 +4,6 @@
         <img class="descriptionMovie" src="{{singleMovie.imageUrl}}" alt="{{singleMovie.name}}">
         <p>{{singleMovie.description}}</p>
         <p>{{singleMovie.price}}:-</p>
-
-        <button type="button" (click)="addMovieToCart(product)" class="btn addToCard">Lägg till</button>
+        <button type="button" (click)="addMovieToCart(singleMovie)" class="btn addToCard">Lägg till</button>
     </div>
 </div>
