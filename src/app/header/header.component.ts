@@ -12,6 +12,8 @@ import { IMovie } from '../interfaces/IMovie';
 export class HeaderComponent implements OnInit {
 
   cart: ICartProduct[] = [];
+  showShopphingCart = false;
+  totalSum: number;
 
 
   //Får jag tillgång till det som finns i interactionService-klassen
@@ -25,7 +27,8 @@ export class HeaderComponent implements OnInit {
       }
     )
     //this.saveCartToLocalStorage();
-    this.printCart();
+    this.printCartFromLocalStorage();
+    this.countTotalPrice()
   }
 
   addToCart(movieToAdd: IMovie) {
@@ -36,12 +39,18 @@ export class HeaderComponent implements OnInit {
       if (movieToAdd.id === this.cart[i].movie.id) {
         this.cart[i].amount++;
         addedMovie = true;
+        this.cart[i].totalPriceOfMovie += this.cart[i].movie.price;
         // console.log(movieToAdd.id);
         // console.log(movieToAdd.name);
       }
+
     }
     if (addedMovie === false) {
-      this.cart.push({ movie: movieToAdd, amount: 1 });
+      this.cart.push({
+        movie: movieToAdd, amount: 1,
+        totalPriceOfMovie: movieToAdd.price
+      });
+
       // console.log(movieToAdd.id);
       // console.log(movieToAdd.name);
     }
@@ -53,15 +62,63 @@ export class HeaderComponent implements OnInit {
   saveCartToLocalStorage() {
     localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
 
-    this.printCart();
+    this.printCartFromLocalStorage();
   }
 
-  printCart() {
-    if(localStorage.getItem('myCartLocalStorage') === null){
+  printCartFromLocalStorage() {
+    if (localStorage.getItem('myCartLocalStorage') === null) {
       this.cart = [];
-    }else {
+    } else {
       let fetchLocalStorageCart = localStorage.getItem('myCartLocalStorage');
       this.cart = JSON.parse(fetchLocalStorageCart);
     }
+    this.countTotalPrice();
+  }
+  dropDownMovieCart() {
+    this.showShopphingCart = !this.showShopphingCart;
+    this.countTotalPrice();
+  }
+
+  countTotalPrice() {
+
+    this.totalSum = 0;
+    console.log('Count total: ', this.cart);
+
+    for (let i = 0; i < this.cart.length; i++) {
+      console.log('In loop: ', this.cart[i]);
+
+      // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
+      this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
+    }
+
+  }
+  addOneMoreMovie(id: number) {
+    for (let i = 0; i < this.cart.length; i++) {
+      if (this.cart[i].movie.id === id) {
+        this.cart[i].amount++;
+        this.cart[i].totalPriceOfMovie += this.cart[i].movie.price;
+      }
+    }
+    this.saveCartToLocalStorage();
+  }
+  subtractMovie(id: number) {
+    for (let i = 0; i < this.cart.length; i++) {
+      if (this.cart[i].movie.id === id) {
+        if (this.cart[i].amount > 0) {
+          this.cart[i].amount--;
+          this.cart[i].totalPriceOfMovie -= this.cart[i].movie.price;
+        }
+
+        if (this.cart[i].amount === 0) {
+          this.cart.splice(i, 1);
+        }
+      }
+    }
+    this.saveCartToLocalStorage();
   }
 }
+
+
+
+
+

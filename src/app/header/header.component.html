@@ -2,18 +2,36 @@
   <nav>
 
     <div class="row justify-content-between">
-      <div class="col-3">
 
-      </div>
-      <div class="col-4">
+      <div class="col-6">
         <img class="filmbutiken-logo" src="assets/images/movie-logo.jpg" alt="First slide" title="movie shop logo">
       </div>
-      <div class="col-3">
-        <h2>cart:</h2>
-        <p *ngFor="let singleMovie of cart">
-          Name: {{singleMovie.movie.name}}<br>
-          Amount: {{singleMovie.amount}} <br>
-        </p>
+
+      <div class="col-6 text-right">
+        <i class="fas fa-shopping-cart icon" (click)="dropDownMovieCart()"></i>
+        <div class="dropDownCart text-left" *ngIf="showShopphingCart">
+          <h2>My cart:</h2>
+          <hr>
+          <p *ngFor="let singleMovie of cart">
+            <strong>Title: {{singleMovie.movie.name}}</strong>,<br>
+            Antal: {{singleMovie.amount}}, 
+            <i class="add fas fa-plus" (click)="addOneMoreMovie(singleMovie.movie.id)"></i>
+            <i class="subtract fas fa-minus" (click)="subtractMovie(singleMovie.movie.id)"></i><br>
+            Pris: {{singleMovie.movie.price}} sek <br>
+           
+            <strong>Total: {{singleMovie.totalPriceOfMovie}}</strong> sek
+         
+          </p>
+          <hr>
+          <strong>Total Summa: {{totalSum}} </strong>sek
+          <br>
+
+          <p button type="buttonSendToCheckout" [routerLink]="['/submit']" class="buttonCheckout">Gå vidare</button></p>
+
+          <!-- <a [routerLink]="['/details', product.id]">
+            <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" />
+        </a> -->
+        </div>
       </div>
 
     </div>
@@ -22,5 +40,5 @@
     <a routerLink="/details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</a>
     <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> -->
   </nav>
-  
+
 </header>
