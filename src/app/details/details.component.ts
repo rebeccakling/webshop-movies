@@ -18,7 +18,7 @@ constructor(private route: ActivatedRoute, private service: DataServiceService) 
 ngOnInit() {
   this.route.paramMap.subscribe(myParams => {
     let id = myParams.get("id");
-    console.log(id);
+    //console.log(id);
     this.service.fetchSingleMovie(id).subscribe((data) => {
       this.singleMovie = data;
     });
