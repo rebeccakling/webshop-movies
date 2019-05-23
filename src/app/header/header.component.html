@@ -8,14 +8,14 @@
       </div>
 
       <div class="col-6 text-right">
-        <i class="fas fa-shopping-cart icon" (click)="dropDownMovieCart()"></i>
+        <i class="fas fa-shopping-cart icon" (click)="dropDownMovieCart()"></i><p>{{totalAmount}}</p>
         <div class="dropDownCart text-left" *ngIf="showShopphingCart">
           <h2>Min varukorg:</h2>
           <hr>
           <p *ngFor="let singleMovie of cart">
             <strong>Title: {{singleMovie.movie.name}}</strong>,<br>
             Antal: {{singleMovie.amount}}, 
-            <i class="add fas fa-plus" (click)="addOneMoreMovie(singleMovie.movie.id)"></i>
+            <i class="add fas fa-plus add" (click)="addOneMoreMovie(singleMovie.movie.id)"></i>
             <i class="subtract fas fa-minus" (click)="subtractMovie(singleMovie.movie.id)"></i><br>
             Pris: {{singleMovie.movie.price}} sek <br>
            

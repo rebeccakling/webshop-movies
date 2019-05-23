@@ -13,8 +13,8 @@ export class DataServiceService {
     return this.httpClient.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
 
-  fetchSingleMovie(id): Observable<IMovie[]>{
-    return this.httpClient.get<IMovie[]>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + id);
+  fetchSingleMovie(id): Observable<IMovie>{
+    return this.httpClient.get<IMovie>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + id);
   }
 
   
