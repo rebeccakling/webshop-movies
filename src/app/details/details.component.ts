@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(myParams => {
-      let id = myParams.get("id");
+      let id = myParams.get('id');
       //console.log(id);
       this.service.fetchSingleMovie(id).subscribe((data) => {
         this.singleMovie = data;
@@ -41,7 +41,7 @@ export class DetailsComponent implements OnInit {
 
   addMovieToCart(product) {
     console.log(product);
-    this.interactionService.sendMovie(product);
+    this.interactionService.sendCart(product);
   }
 
 }

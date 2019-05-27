@@ -31,7 +31,7 @@ describe('HeaderComponent', () => {
     const service = new MockDataService();
 
     service.fetchMovies().subscribe((movies) => {
-      component.addToCart(movies[0]);
+      component.addMovie(movies[0]);
 
       expect(component.cart.length).toEqual(1);
     });
@@ -41,8 +41,8 @@ describe('HeaderComponent', () => {
     const service = new MockDataService();
 
     service.fetchMovies().subscribe((movies) => {
-      component.addToCart(movies[0]);
-      component.addToCart(movies[1]);
+      component.addMovie(movies[0]);
+      component.addMovie(movies[1]);
 
       expect(component.cart.length).toEqual(2);
     });
@@ -52,8 +52,8 @@ describe('HeaderComponent', () => {
     const service = new MockDataService();
 
     service.fetchMovies().subscribe((movies) => {
-      component.addToCart(movies[0]);
-      component.addToCart(movies[0]);
+      component.addMovie(movies[0]);
+      component.addMovie(movies[0]);
 
       expect(component.cart.length).toEqual(1);
     });
@@ -64,12 +64,11 @@ describe('HeaderComponent', () => {
     const service = new MockDataService();
 
     service.fetchMovies().subscribe((movies) => {
-      component.addToCart(movies[0]);
-      component.addToCart(movies[1]);
+      component.addMovie(movies[0]);
+      component.addMovie(movies[1]);
  
       expect(component.cart.length).toEqual(2);
     });
- 
   });
  
   it('should add even one more movie to cart', () => {
@@ -77,22 +76,23 @@ describe('HeaderComponent', () => {
     const service = new MockDataService();
 
      service.fetchMovies().subscribe((movies) => {
-      component.addToCart(movies[0]);
-      component.addToCart(movies[1]);
-      component.addToCart(movies[0]);
+      component.addMovie(movies[0]);
+      component.addMovie(movies[1]);
+      component.addMovie(movies[0]);
  
       expect(component.cart.length).toEqual(2);
       expect(component.cart[0].amount).toBe(2);
     });
+  });
 
   it('should remove one movie from cart', () => {
     const service = new MockDataService();
 
     service.fetchMovies().subscribe((movies) => {
-      component.addToCart(movies[0]);
-      component.addOneMoreMovie(76);
+      component.addMovie(movies[0]);
+      component.deleteMovie(76);
 
-      expect(component.cart.length).toEqual(1);
+      expect(component.cart.length).toEqual(0);
     });
   });
 
@@ -102,13 +102,12 @@ describe('HeaderComponent', () => {
 
     service.fetchMovies().subscribe((movies) => {
       expect(component.totalSum).toEqual(0);
-      component.addToCart(movies[0]);
-      component.addToCart(movies[0]);
+      component.addMovie(movies[0]);
+      component.addMovie(movies[0]);
       component.countTotalPrice();
 
       expect(component.totalSum).toEqual(398);
     });
-
   });
 
   it('should count totaamout of cart', () => {
@@ -117,8 +116,8 @@ describe('HeaderComponent', () => {
 
     service.fetchMovies().subscribe((movies) => {
       expect(component.totalAmount).toEqual(0);
-      component.addToCart(movies[0]);
-      component.addToCart(movies[0]);
+      component.addMovie(movies[0]);
+      component.addMovie(movies[0]);
       component.countTotalAmount();
 
       expect(component.totalAmount).toEqual(2);

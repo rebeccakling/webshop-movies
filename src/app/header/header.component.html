@@ -1,45 +1,41 @@
 <header>
   <nav>
 
-    <div class="row justify-content-between">
+    <div class='row justify-content-between'>
 
-      <div class="col-6">
-        <img class="filmbutiken-logo" src="assets/images/movie-logo.jpg" alt="First slide" title="movie shop logo">
+      <div class='col-6'>
+        <img class='filmbutiken-logo' src='assets/images/movie-logo.jpg' alt='First slide' title='movie shop logo'>
       </div>
 
-      <div class="col-6 text-right">
-        <i class="fas fa-shopping-cart icon" (click)="dropDownMovieCart()"></i><p>{{totalAmount}}</p>
-        <div class="dropDownCart text-left" *ngIf="showShopphingCart">
+      <div class='col-6 text-right'>
+        <i class='fas fa-shopping-cart icon' (click)='dropDownMovieCart()'></i>
+        <p>{{totalAmount}}</p>
+        <div class='dropDownCart text-left' *ngIf='showShopphingCart'>
           <h2>Min varukorg:</h2>
           <hr>
-          <p *ngFor="let singleMovie of cart">
+          <p *ngFor='let singleMovie of cart'>
             <strong>Title: {{singleMovie.movie.name}}</strong>,<br>
-            Antal: {{singleMovie.amount}}, 
-            <i class="add fas fa-plus add" (click)="addOneMoreMovie(singleMovie.movie.id)"></i>
-            <i class="subtract fas fa-minus" (click)="subtractMovie(singleMovie.movie.id)"></i><br>
+            Antal: {{singleMovie.amount}},
+            <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+            <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
             Pris: {{singleMovie.movie.price}} sek <br>
-           
+
             <strong>Total: {{singleMovie.totalPriceOfMovie}}</strong> sek
-         
+
           </p>
           <hr>
-          <strong>Total Summa: {{totalSum}} </strong>sek
+          <strong>Total summa: {{totalSum}} </strong>sek
           <br>
+          <button type='buttonSendToCheckout' routerLink='/submit' class='buttonCheckout'>Gå vidare</button>
 
-        
-          <!-- <button type="buttonSendToCheckout" [routerLink]="['/submit']" class="buttonCheckout">Gå vidare</button> -->
-
-          <!-- <a [routerLink]="['/details', product.id]">
-            <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" />
-        </a> -->
         </div>
       </div>
 
     </div>
     <!--  gör en liknande sen: 
-    <a routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About</a>
-    <a routerLink="/details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</a>
-    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a> -->
+    <a routerLink='/about' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>About</a>
+    <a routerLink='/details' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Details</a>
+    <a routerLink='' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a> -->
   </nav>
 
 </header>

@@ -21,65 +21,19 @@ export class HeaderComponent implements OnInit {
   constructor(private interactionService: InteractionService) { }
 
   ngOnInit() {
-    this.interactionService.movieSource$.subscribe(
-      info => {
-        this.addToCart(info);
+   this.interactionService.printCartFromLocalStorage();
+   this.cart = this.interactionService.getCart();
+   this.countTotalAmount();
+   this.countTotalPrice();
 
+    this.interactionService.movieSource$.subscribe(
+      cart => {
+        this.print(cart);
 
       }
     )
-    //this.saveCartToLocalStorage();
-    this.printCartFromLocalStorage();
-    this.countTotalPrice();
-    this.countTotalAmount();
   }
 
-  addToCart(movieToAdd: IMovie) {
-
-    let addedMovie = false;
-
-    //movieToAdd.id = id på klickade filmen
-    // this.cart[i].movie.id = id på den som finns i cart
-    for (let i = 0; i < this.cart.length; i++) {
-      if (movieToAdd.id === this.cart[i].movie.id) {
-        this.cart[i].amount++;
-        addedMovie = true;
-        this.cart[i].totalPriceOfMovie += this.cart[i].movie.price;
-        // console.log(movieToAdd.id);
-        // console.log(movieToAdd.name);
-      }
-
-    }
-    if (addedMovie === false) {
-      this.cart.push({
-        movie: movieToAdd, amount: 1,
-        totalPriceOfMovie: movieToAdd.price
-      });
-
-      // console.log(movieToAdd.id);
-      // console.log(movieToAdd.name);
-    }
-
-    this.saveCartToLocalStorage();
-    this.countTotalAmount();
-
-  }
-
-  saveCartToLocalStorage() {
-    localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
-
-    this.printCartFromLocalStorage();
-  }
-
-  printCartFromLocalStorage() {
-    if (localStorage.getItem('myCartLocalStorage') === null) {
-      this.cart = [];
-    } else {
-      let fetchLocalStorageCart = localStorage.getItem('myCartLocalStorage');
-      this.cart = JSON.parse(fetchLocalStorageCart);
-    }
-    this.countTotalPrice();
-  }
 
   dropDownMovieCart() {
     this.showShopphingCart = !this.showShopphingCart;
@@ -100,6 +54,17 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  print(cart) {
+
+    console.log('movie: ' + cart);
+ 
+    this.cart = cart;
+ 
+    this.countTotalAmount();
+    this.countTotalPrice();
+ 
+  }
+
   countTotalAmount(){
     this.totalAmount = 0;
  
@@ -109,36 +74,32 @@ export class HeaderComponent implements OnInit {
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
  
-      console.log("total amount is: " + this.totalAmount);
+      console.log('total amount is: ' + this.totalAmount);
  
     }
   }
-  addOneMoreMovie(id: number) {
-    for (let i = 0; i < this.cart.length; i++) {
-      if (this.cart[i].movie.id === id) {
-        this.cart[i].amount++;
-        this.cart[i].totalPriceOfMovie += this.cart[i].movie.price;
-      }
-    }
-    this.saveCartToLocalStorage();
-    this.countTotalAmount();
-  }
-  subtractMovie(id: number) {
-    for (let i = 0; i < this.cart.length; i++) {
-      if (this.cart[i].movie.id === id) {
-        if (this.cart[i].amount > 0) {
-          this.cart[i].amount--;
-          this.cart[i].totalPriceOfMovie -= this.cart[i].movie.price;
-        }
 
-        if (this.cart[i].amount === 0) {
-          this.cart.splice(i, 1);
-        }
-      }
-    }
-    this.saveCartToLocalStorage();
+  addMovie(singleMovie: IMovie) {
+
+    this.interactionService.sendCart(singleMovie);
+ 
+    this.cart = this.interactionService.cart;
+ 
     this.countTotalAmount();
+    this.countTotalPrice();
+ 
   }
+ 
+ 
+  deleteMovie(id) {
+ 
+    this.interactionService.subtractMovie(id);
+ 
+    this.countTotalAmount();
+    this.countTotalPrice();
+ 
+  }
+
 }
 
 
