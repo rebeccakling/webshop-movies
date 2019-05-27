@@ -1,24 +1,24 @@
 <li>
-    <div class="row justify-content-center">
-        <div class="col-12 frameMovies ">
-            <a [routerLink]="['/details', product.id]">
-                <img class="image" src="{{product.imageUrl}}" alt="{{product.name}}" />
+    <div class='row justify-content-center'>
+        <div class='col-12 frameMovies '>
+            <a [routerLink]='["/details", product.id]'>
+                <img class='image' src='{{product.imageUrl}}' alt='{{product.name}}' />
             </a>
      </div>
     </div>
-    <div class="row justify-content-between text-center">
-        <div class=" col-12">
+    <div class='row justify-content-between text-center'>
+        <div class=' col-12'>
             <strong>{{product.name}}</strong><br />
         </div>
-        <div class=" col-12">
+        <div class=' col-12'>
             <strong>{{product.price}} sek</strong><br />
         </div>
-        <div class=" col-12">
-            <button type="button" (click)="addMovieToCart(product)" class="btn addToCard">Lägg till</button>
+        <div class=' col-12'>
+            <button type='button' (click)="addMovieToCart(product)"  class="btn addToCard">Lägg till</button>
         </div>
     </div>
 
 </li>
 
 <!-- vill göra en liknande som nedan för att komma till en ny url med bara info om den filmen vi klickat på -->
-<!-- <a [routerLink]="['/details', korven.id]" routerLinkActive="active">Mer info</a> (Jag kommer inte ha det)-->
+<!-- <a [routerLink]='['/details', korven.id]' routerLinkActive='active'>Mer info</a> (Jag kommer inte ha det)-->

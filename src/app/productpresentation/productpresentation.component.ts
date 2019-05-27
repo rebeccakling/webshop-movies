@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { IMovie } from '../interfaces/IMovie';
-import { InteractionService } from '../services/interaction.service';
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
+import { IMovie } from "../interfaces/IMovie";
+import { InteractionService } from "../services/interaction.service";
 
 @Component({
-  selector: 'app-productpresentation',
-  templateUrl: './productpresentation.component.html',
-  styleUrls: ['./productpresentation.component.css']
+  selector: "app-productpresentation",
+  templateUrl: "./productpresentation.component.html",
+  styleUrls: ["./productpresentation.component.css"]
 })
 export class ProductpresentationComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class ProductpresentationComponent implements OnInit {
   }
 
   addMovieToCart(product) {
-    this.interactionService.sendMovie(product);
+    this.interactionService.sendCart(product);
   }
 
 

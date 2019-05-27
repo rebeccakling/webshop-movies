@@ -9,6 +9,7 @@ import { ProductpresentationComponent } from './productpresentation/productprese
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -19,7 +20,8 @@ import { DetailsComponent } from './details/details.component';
     ProductpresentationComponent,
     HeaderComponent,
     FooterComponent,
-    DetailsComponent
+    DetailsComponent,
+    CheckoutComponent
 
   ],
   imports: [
