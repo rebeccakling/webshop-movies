@@ -1,1 +1,14 @@
 
+     <p *ngFor='let singleMovie of cart'>
+            <strong>Title: {{singleMovie.movie.name}}</strong>,<br>
+            Antal: {{singleMovie.amount}},
+            <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+            <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
+            Pris: {{singleMovie.movie.price}} sek <br>
+
+            <strong>Total: {{singleMovie.totalPriceOfMovie}}</strong> sek
+
+          </p>
+          <hr>
+          <strong>Total summa: {{totalSum}} </strong>sek
+          <br>
