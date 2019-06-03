@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
+import { IOrder } from '../interfaces/IOrder';
 
 
 @Injectable({
@@ -15,6 +16,10 @@ export class DataServiceService {
 
   fetchSingleMovie(id): Observable<IMovie>{
     return this.httpClient.get<IMovie>("https://medieinstitutet-wie-products.azurewebsites.net/api/products/" + id);
+  }
+
+  postOrder(order): Observable<IOrder> {
+    return this.httpClient.post<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders', order);
   }
 
   

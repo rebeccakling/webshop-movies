@@ -75,6 +75,9 @@ export class InteractionService {
         }
       }
     }
+
+    this.movieSourcen.next(this.cart);
+
     this.saveCartToLocalStorage();
   }
 

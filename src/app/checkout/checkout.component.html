@@ -1,14 +1,57 @@
 
-     <p *ngFor='let singleMovie of cart'>
-            <strong>Title: {{singleMovie.movie.name}}</strong>,<br>
-            Antal: {{singleMovie.amount}},
-            <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-            <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
-            Pris: {{singleMovie.movie.price}} sek <br>
 
-            <strong>Total: {{singleMovie.totalPriceOfMovie}}</strong> sek
+<!-- <p *ngFor='let singleMovie of cart'>
+  Title: {{singleMovie.movie.name}},<br>
+  Antal: {{singleMovie.amount}},
+  <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+  <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
+  Pris: {{singleMovie.movie.price}} sek <br>
+  Total: {{singleMovie.totalPriceOfMovie}} sek
+</p> -->
 
-          </p>
-          <hr>
-          <strong>Total summa: {{totalSum}} </strong>sek
-          <br>
+
+<div class='row justify-content-center'>
+<div class="col-10 hedingCheckout">
+<h1> Min kundkorg</h1>
+</div>
+
+  <div class="col-10 single-dropDown-item" *ngFor='let singleMovie of cart'>
+
+    <div class="big-wrapper d-flex">
+      <div class="image-wrapper ">
+        <img src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
+      </div>
+
+      <div class="info-wrapper">
+        Title: {{singleMovie.movie.name}},<br>
+        Antal: {{singleMovie.amount}},
+        <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+        <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
+        Pris: {{singleMovie.movie.price}} sek <br>
+        Total: {{singleMovie.totalPriceOfMovie}} sek
+      </div>
+    </div>
+  </div>
+</div>
+
+Total summa: {{totalSum}} sek
+<section>
+  <form [formGroup]="orderForm" (ngSubmit)="postOrder()">
+    <!-- [formGroup] VILL HA, men i test bli det fel -->
+
+    <label for="email">Mejladress</label><br>
+    <input name="email" type="text" formControlName="emailAdress"><br>
+    <label for="swish">Välj betalsätt</label><br>
+    <input name="paymentMethod" value="swish" checked="checked" type="radio" formControlName="paymentMethod"><br>
+    <input name="paymentMethod" value="paypal" type="radio" formControlName="paymentMethod"><br>
+
+    <button type="submit" [disabled]="!orderForm.valid">Slutför din order</button>
+
+
+  </form>
+</section>
+
+
+{{orderForm.status}}
+{{orderForm.value.emailAdress}}
+{{orderForm.value.paymentMethod}}
