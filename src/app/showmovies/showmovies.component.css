@@ -1,7 +1,4 @@
-.cardMovie {
-    /* border: 1px solid black; */
-    padding: 0;
+.cardMovie{
+    min-height: 370px;
+    /* border: 1px solid green; */
 }
-
-
-

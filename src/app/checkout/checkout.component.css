@@ -1,0 +1,28 @@
+.single-dropDown-item {
+    margin: 1em 0;
+}
+
+img {
+    max-height: 150px;
+}
+.add {
+    width: 20px;
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 50%;
+    color: black;
+    padding: 2.3px;
+}
+
+.minus {
+    width: 20px;
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 50%;
+    color: black;
+    padding: 2.3px;
+    
+}
+.info-wrapper {
+    padding-left: 20px;
+}
