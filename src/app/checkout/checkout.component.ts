@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit {
   totalAmount: number;
   orderForm: FormGroup = this.fb.group({
 
-    emailAdress: ['', Validators.required],
+    emailAdress: ['', [Validators.required, Validators.email]],
     paymentMethod: ['', Validators.required]
  
   });
@@ -139,8 +139,10 @@ export class CheckoutComponent implements OnInit {
       }
    
       this.dataService.postOrder(order).subscribe();
+      this.router.navigateByUrl('/');
    
     }
+
    }
 
 

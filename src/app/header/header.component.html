@@ -1,54 +1,46 @@
 <header>
-    <nav>
+    <nav class="nav">
 
-        <div class='row justify-content-between'>
+        <div class='row justify-content-around'>
 
-            <div class='col-6'>
+            <div class='col-4 col-md-6 col-lg-6 text-left'>
                 <a routerLink="">
                     <img class='filmbutiken-logo' src='assets/images/movie-logo.jpg' alt='First slide' title='movie shop logo'>
                 </a>
             </div>
-            <div class='col-6 text-right'>
+
+            <div class='col-8 col-md-6 col-lg-4 text-right'>
                 <i class='fas fa-shopping-cart icon' (click)='dropDownMovieCart()'></i>
                 <div id="totalAmount">{{totalAmount}}</div>
                 <div class='dropDownCart text-left' *ngIf='showShopphingCart'>
                     <h2>Min kundkorg:</h2>
-                    <hr>
 
                     <div class="single-dropDown-item" *ngFor='let singleMovie of cart'>
-                       
-                       <div class="big-wrapper d-flex">
-                        <div class="image-wrapper">
-                            <img src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
-                        </div>
 
-                        <div class="info-wrapper">
-                            Title: {{singleMovie.movie.name}},<br>
-                            Antal: {{singleMovie.amount}},
-                            <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-                            <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
-                            Pris: {{singleMovie.movie.price}} sek <br>
+                        <div class="big-wrapper d-flex">
+                            <div class="image-wrapper">
+                                <img class="dropDownImages" src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
+                            </div>
 
-                            <strong>Total: {{singleMovie.totalPriceOfMovie}}</strong> sek
-                        </div>
+                            <div class="info-wrapper">
+                                Title: {{singleMovie.movie.name}},<br>
+                                Antal: {{singleMovie.amount}},
+                                <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+                                <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
+                                Pris: {{singleMovie.movie.price}} sek <br>
+
+                                <strong>Total: {{singleMovie.totalPriceOfMovie}}</strong> sek
+                            </div>
                         </div>
                     </div>
-
-
                     <hr>
                     <strong>Total summa: {{totalSum}} </strong>sek
-                    <br>
-
-                    <button type='buttonSendToCheckout' routerLink='/submit' class='buttonCheckout'>Gå vidare</button>
+                    <button type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå vidare</button>
                 </div>
 
             </div>
 
         </div>
-        <!--  gör en liknande sen: 
-    <a routerLink='/about' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>About</a>
-    <a routerLink='/details' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Details</a>
-    <a routerLink='' routerLinkActive='active' [routerLinkActiveOptions]='{ exact: true }'>Home</a> -->
     </nav>
 
 </header>
