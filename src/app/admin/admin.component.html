@@ -1,0 +1,12 @@
+<div class="orderContainer">
+  <p>Hej</p>
+    <div *ngFor="let order of orders">
+      <p>Id: {{ order.id }}, CompanyId: {{ order.companyId}} Created by: {{ order.createdBy }}, Created: {{ order.created }}, Total price:
+        {{ order.totalPrice}} </p>
+      <p *ngFor="let orderrow of order.orderRows">
+        Product ID: {{ orderrow.productId }}
+      </p>
+  
+    </div>
+  </div>
+  

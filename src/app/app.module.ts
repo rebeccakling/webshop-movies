@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     DetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AdminComponent
 
   ],
   imports: [
