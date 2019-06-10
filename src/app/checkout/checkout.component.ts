@@ -144,12 +144,16 @@ export class CheckoutComponent implements OnInit {
       }
 
       this.dataService.postOrder(order).subscribe();
-      this.interactionService.clearCartLocalstorage();
+      this.clearCart();
 
       this.router.navigate(['/admin']);
 
     }
 
+  }
+
+  clearCart() {
+    this.interactionService.clearCartLocalstorage();
   }
 
 }
