@@ -1,57 +1,77 @@
-
-
-<!-- <p *ngFor='let singleMovie of cart'>
-  Title: {{singleMovie.movie.name}},<br>
-  Antal: {{singleMovie.amount}},
-  <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-  <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
-  Pris: {{singleMovie.movie.price}} sek <br>
-  Total: {{singleMovie.totalPriceOfMovie}} sek
-</p> -->
-
-
-<div class='row justify-content-center'>
-<div class="col-10 hedingCheckout">
-<h1> Min kundkorg</h1>
-</div>
-
-  <div class="col-10 single-dropDown-item" *ngFor='let singleMovie of cart'>
-
-    <div class="big-wrapper d-flex">
-      <div class="image-wrapper ">
-        <img src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
-      </div>
-
-      <div class="info-wrapper">
-        Title: {{singleMovie.movie.name}},<br>
-        Antal: {{singleMovie.amount}},
-        <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-        <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
-        Pris: {{singleMovie.movie.price}} sek <br>
-        Total: {{singleMovie.totalPriceOfMovie}} sek
-      </div>
-    </div>
+<div class='row wrapperCheckout justify-content-center'>
+  <div class="col-10 text-center hedingCheckout">
+    <h1> Min kundkorg</h1>
   </div>
 </div>
 
-Total summa: {{totalSum}} sek
+<div class="row justify-content-center single-dropDown-item" *ngFor='let singleMovie of cart'>
+  <div class="col-5 col-md-3 col-lg-2 big-wrapper d-flex">
+    <div>
+      <img class=" card imageCheckout" src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
+    </div>
+  </div>
+
+  <div class="col-6 col-md-3 col-lg-2 info-wrapper">
+    <h2>{{singleMovie.movie.name}}</h2><br>
+    {{singleMovie.movie.price}} sek/st<br>
+    <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+    {{singleMovie.amount}}
+    <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
+  
+    Total: {{singleMovie.totalPriceOfMovie}} sek
+  </div>
+</div>
+
+<div class='row justify-content-center'>
+  <div class="col-10 text-center">
+    Total summa: {{totalSum}} sek
+  </div>
+</div>
+
+<br>
+<br>
+
 <section>
-  <form [formGroup]="orderForm" (ngSubmit)="postOrder()">
-    <!-- [formGroup] VILL HA, men i test bli det fel -->
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 col-lg-5 cardForm text-center">
+      <form [formGroup]="orderForm" (ngSubmit)="postOrder()" #formDir="ngForm">
+        <label for="email">Mejladress</label><br>
+        <input name="email" type="text" formControlName="emailAdress"><br>
+        <div *ngIf="orderForm.get('emailAdress').invalid && (formDir.submitted || orderForm.get('emailAdress').dirty || orderForm.get('emailAdress').touched)">
+          <div *ngIf="orderForm.get('emailAdress').errors.required">
+            <p class="errorMessage">Du måste fylla i mejladress.</p>
+          </div>
+          <div *ngIf="orderForm.get('emailAdress').errors.email">
+            <p class="errorMessage">Du måste skriva in en mejladress.</p>
+          </div>
+        </div>
 
-    <label for="email">Mejladress</label><br>
-    <input name="email" type="text" formControlName="emailAdress"><br>
-    <label for="swish">Välj betalsätt</label><br>
-    <input name="paymentMethod" value="swish" checked="checked" type="radio" formControlName="paymentMethod"><br>
-    <input name="paymentMethod" value="paypal" type="radio" formControlName="paymentMethod"><br>
+        <label class="labelPayment" for="paymentMethod">Välj betalsätt</label><br>
+        <select id="paymentMethod" formControlName="paymentMethod">
+          <option selected="selected" value="">Betalningsmetod:</option>
+          <option value="card">Card</option>
+          <option value="paypal">PayPal</option>
+        </select><br>
+        <div *ngIf="orderForm.get('paymentMethod').invalid && formDir.submitted">
+          <div *ngIf="orderForm.get('paymentMethod').errors.required">
+            <p class="errorMessage">Du måste välja betalningsmetod</p>
+          </div>
+        </div><br>
+        <div *ngIf="orderForm.valid">
+          <button routerLink='' class="finishOrderBtn" type="submit">Slutför ditt köp</button>
+        </div>
 
-    <button type="submit" [disabled]="!orderForm.valid">Slutför din order</button>
+        <div *ngIf="orderForm.invalid">
+          <button class="finishOrderBtnInvalid">Slutför ditt köp</button>
+        </div>
 
+      </form>
+    </div>
+  </div>
 
-  </form>
 </section>
 
 
-{{orderForm.status}}
+<!-- {{orderForm.status}}
 {{orderForm.value.emailAdress}}
-{{orderForm.value.paymentMethod}}
+{{orderForm.value.paymentMethod}} -->

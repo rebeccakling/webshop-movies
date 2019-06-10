@@ -2,9 +2,27 @@
     margin: 1em 0;
 }
 
-img {
-    max-height: 150px;
+.wrapperCheckout {
+margin-top: 150px;
 }
+
+.imageCheckout {
+    max-height: 180px;
+
+ }
+ h1 {
+    font-size: 25px;
+ }
+
+ h2 {
+     font-size: 15px;
+ }
+
+ .cardForm {
+    background-color: lightgray;
+    color: black;
+ }
+
 .add {
     width: 20px;
     height: 20px;
@@ -22,7 +40,36 @@ img {
     color: black;
     padding: 2.3px;
     
-}
+    
+} 
 .info-wrapper {
     padding-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapperCheckout {
+        margin-top: 150px;
+        }
+        
+        .imageCheckout {
+            max-height: 250px;
+        
+         }
+         h1 {
+            font-size: 35px;
+            margin-bottom: 50px;
+         }
+        
+         h2 {
+             font-size: 18px;
+         }
+    
+  
+
+}
+
+@media screen and (min-width: 992px) { 
+
+   
+ 
 }
