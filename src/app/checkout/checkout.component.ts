@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InteractionService } from '../services/interaction.service';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { IMovie } from '../interfaces/IMovie';
-import { FormBuilder, Validators, FormGroup} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IOrder } from '../interfaces/IOrder';
 import { DataServiceService } from '../services/data-service.service';
@@ -24,17 +24,17 @@ export class CheckoutComponent implements OnInit {
 
     emailAdress: ['', [Validators.required, Validators.email]],
     paymentMethod: ['', Validators.required]
- 
+
   });
 
   //Får jag tillgång till det som finns i interactionService-klassen
   constructor(private interactionService: InteractionService, private router: Router, private fb: FormBuilder, private dataService: DataServiceService) { }
 
   ngOnInit() {
-   this.interactionService.printCartFromLocalStorage();
-   this.cart = this.interactionService.getCart();
-   this.countTotalAmount();
-   this.countTotalPrice();
+    this.interactionService.printCartFromLocalStorage();
+    this.cart = this.interactionService.getCart();
+    this.countTotalAmount();
+    this.countTotalPrice();
 
     this.interactionService.movieSource$.subscribe(
       cart => {
@@ -67,65 +67,70 @@ export class CheckoutComponent implements OnInit {
   print(cart) {
 
     console.log('movie: ' + cart);
- 
+
     this.cart = cart;
- 
+
     this.countTotalAmount();
     this.countTotalPrice();
- 
+
   }
 
-  countTotalAmount(){
+  countTotalAmount() {
     this.totalAmount = 0;
- 
-    for(let i = 0; i < this.cart.length; i++){
+
+    for (let i = 0; i < this.cart.length; i++) {
       // console.log('In loop: ', this.cart[i]);
- 
+
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
- 
+
       console.log('total amount is: ' + this.totalAmount);
- 
+
     }
   }
 
   addMovie(singleMovie: IMovie) {
 
     this.interactionService.sendCart(singleMovie);
- 
+
     this.cart = this.interactionService.cart;
- 
+
     this.countTotalAmount();
     this.countTotalPrice();
- 
-  }
- 
- 
-  deleteMovie(id) {
- 
-    this.interactionService.subtractMovie(id);
- 
-    this.countTotalAmount();
-    this.countTotalPrice();
- 
+
   }
 
-    postOrder(){
+
+  deleteMovie(id) {
+
+    this.interactionService.subtractMovie(id);
+
+    this.countTotalAmount();
+    this.countTotalPrice();
+
+  }
+
+  postOrder() {
+
+    if (this.orderForm.valid) {
+
+
 
       let orderRowsContent = [];
-   
+
+
       for (let i = 0; i < this.cart.length; i++) {
-   
+
         let amount = this.cart[i].amount;
         let id = this.cart[i].movie.id;
-   
-        orderRowsContent.push({productId: id, amount: amount});
-   
+
+        orderRowsContent.push({ productId: id, amount: amount });
+
       }
       console.log('variabel orderrows ', orderRowsContent);
       console.log('bajs ' + this.timeNow);
-   
-   
+
+
       let order: IOrder = {
         id: 0,
         companyId: 14,
@@ -135,14 +140,22 @@ export class CheckoutComponent implements OnInit {
         totalPrice: this.totalSum,
         status: 0,
         orderRows: orderRowsContent
-   
+
       }
-   
+
       this.dataService.postOrder(order).subscribe();
-      this.router.navigateByUrl('/');
-   
+      this.clearCart();
+
+      this.router.navigate(['/admin']);
+
     }
 
-   }
+  }
+
+  clearCart() {
+    this.interactionService.clearCartLocalstorage();
+  }
+
+}
 
 

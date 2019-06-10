@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CheckoutComponent } from './checkout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReactiveFormsModule, FormsModule, FormBuilder, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { MockDataService } from '../services/mock.service';
 
 describe('CheckoutComponent', () => {
   let component: CheckoutComponent;
@@ -11,11 +12,11 @@ describe('CheckoutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckoutComponent ],
+      declarations: [CheckoutComponent],
       imports: [RouterTestingModule, ReactiveFormsModule, HttpClientModule, FormsModule],
-      providers: [ FormBuilder ]
+      providers: [FormBuilder]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -26,5 +27,19 @@ describe('CheckoutComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+
+  it('should clear cart after submitting order', () => {
+
+    const service = new MockDataService();
+
+    service.fetchMovies().subscribe((movies) => {
+      component.addMovie(movies[0]);
+
+      expect(component.cart.length).toEqual(1);
+      component.clearCart();
+      expect(component.cart.length).toEqual(0);
+    });
   });
 });

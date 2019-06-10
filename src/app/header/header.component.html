@@ -1,18 +1,21 @@
 <header>
     <nav class="nav">
+<div class="container-fluid">
+        <div class='row justify-content-between border'>
 
-        <div class='row justify-content-around'>
-
-            <div class='col-4 col-md-6 col-lg-6 text-left'>
+            <div class='col-4 col-md-6 col-lg-6 text-left border'>
                 <a routerLink="">
                     <img class='filmbutiken-logo' src='assets/images/movie-logo.jpg' alt='First slide' title='movie shop logo'>
                 </a>
             </div>
 
-            <div class='col-8 col-md-6 col-lg-4 text-right'>
+            <div class='col-8 col-md-6 col-lg-4 text-right border'>
+
                 <i class='fas fa-shopping-cart icon' (click)='dropDownMovieCart()'></i>
+                <a routerLink='/admin'><i class="fas fa-user admin"></i></a>
                 <div id="totalAmount">{{totalAmount}}</div>
                 <div class='dropDownCart text-left' *ngIf='showShopphingCart'>
+
                     <h2>Min kundkorg:</h2>
 
                     <div class="single-dropDown-item" *ngFor='let singleMovie of cart'>
@@ -23,9 +26,9 @@
                             </div>
 
                             <div class="info-wrapper">
-                                Title: {{singleMovie.movie.name}},<br>
-                                Antal: {{singleMovie.amount}},
+                                Title: {{singleMovie.movie.name}}<br> 
                                 <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+                                {{singleMovie.amount}}
                                 <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
                                 Pris: {{singleMovie.movie.price}} sek <br>
 
@@ -39,7 +42,7 @@
                 </div>
 
             </div>
-
+        </div>
         </div>
     </nav>
 
