@@ -17,7 +17,7 @@
     <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
     {{singleMovie.amount}}
     <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
-  
+
     Total: {{singleMovie.totalPriceOfMovie}} sek
   </div>
 </div>
@@ -57,13 +57,11 @@
             <p class="errorMessage">Du måste välja betalningsmetod</p>
           </div>
         </div><br>
-        <div *ngIf="orderForm.valid">
-          <button routerLink='' class="finishOrderBtn" type="submit">Slutför ditt köp</button>
-        </div>
+   
+          <button class="finishOrderBtn" type="submit">Slutför ditt köp</button>
+       
 
-        <div *ngIf="orderForm.invalid">
-          <button class="finishOrderBtnInvalid">Slutför ditt köp</button>
-        </div>
+        
 
       </form>
     </div>

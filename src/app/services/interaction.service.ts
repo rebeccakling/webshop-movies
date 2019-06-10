@@ -81,5 +81,13 @@ export class InteractionService {
     this.saveCartToLocalStorage();
   }
 
+  clearCartLocalstorage(){
+    this.cart.splice(0, this.cart.length);
+ 
+    this.movieSourcen.next(this.cart);
+ 
+    this.saveCartToLocalStorage();
+ 
+  }
 
 }

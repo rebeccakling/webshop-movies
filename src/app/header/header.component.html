@@ -26,9 +26,9 @@
                             </div>
 
                             <div class="info-wrapper">
-                                Title: {{singleMovie.movie.name}},<br>
-                                Antal: {{singleMovie.amount}},
+                                Title: {{singleMovie.movie.name}}<br> 
                                 <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+                                {{singleMovie.amount}}
                                 <i class='subtract fas fa-minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
                                 Pris: {{singleMovie.movie.price}} sek <br>
 
