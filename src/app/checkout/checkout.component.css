@@ -10,12 +10,13 @@ margin-top: 150px;
     max-height: 180px;
 
  }
+
  h1 {
     font-size: 25px;
  }
 
- h2 {
-     font-size: 15px;
+ .movieTitle {
+     font-size: 18px;
  }
 
  .cardForm {
@@ -38,10 +39,9 @@ margin-top: 150px;
     background-color: #bfbfbf;
     border-radius: 50%;
     color: black;
-    padding: 2.3px;
-    
-    
+    padding: 2.3px;   
 } 
+
 .info-wrapper {
     padding-left: 20px;
 }
@@ -85,29 +85,43 @@ margin-top: 150px;
     padding-left: 10px;
 }
 
-
-
 @media screen and (min-width: 768px) {
-    .wrapperCheckout {
+
+        .wrapperCheckout {
         margin-top: 150px;
         }
-        
+
         .imageCheckout {
             max-height: 250px;
-        
-         }
-         h1 {
+        }
+
+        h1 {
             font-size: 35px;
             margin-bottom: 50px;
-         }
+        }
+         .movieTitle {
+            font-size: 25px;
+        }
+
+        .info-wrapper {
+           padding-left: 25px;
+        }
+       
+        .buttonCheckout {
+            font-size: 15px; 
+        }
+
+        .visaCard {
+           font-size: 30px;
+          
+        }
+
+        .payPalCard{
+           font-size: 30px;
+           color: gray;
+           padding-left: 10px;
+       }
         
-         h2 {
-             font-size: 18px;
-         }
-
-    
-  
-
 }
 
 @media screen and (min-width: 992px) { 

@@ -1,4 +1,5 @@
-<header>
+<header role="banner">
+
     <nav class="nav">
         <div class="container-fluid">
             <div class='row justify-content-between'>
@@ -16,7 +17,7 @@
                     <div id="totalAmount">{{totalAmount}}</div>
 
                     <div class='dropDownCart text-left' *ngIf='showShopphingCart'>
-                           <i class="fas fa-times closeDropDownIcon " (click)='closeDropDown()'></i>
+                        <i class="fas fa-times closeDropDownIcon" (click)='closeDropDown()'></i>
                         <h2>Min kundkorg:</h2>
 
                         <div class="single-dropDown-item" *ngFor='let singleMovie of cart'>
@@ -32,7 +33,7 @@
                                     {{singleMovie.amount}}
                                     <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
                                     {{singleMovie.movie.price}} sek <br>
-                                    Total: {{singleMovie.totalPriceOfMovie}} sek 
+                                    Total: {{singleMovie.totalPriceOfMovie}} sek
                                 </div>
                             </div>
                         </div>
@@ -40,7 +41,6 @@
                         <strong>Total summa: {{totalSum}} </strong>sek
                         <button type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå vidare</button>
                     </div>
-
                 </div>
             </div>
         </div>

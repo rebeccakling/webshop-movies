@@ -8,19 +8,16 @@
 }
 h1 {
     font-size: 25px;
+    text-shadow: 0.5px 0.5px;
 }
 .movieImage img {
     object-fit: cover;
     height: 280px;
-  
-
-  
+    border: 1px solid black;
 } 
 .descriptionMovie {
     margin-top: 20px;
 }
-
-
 
 .addToCard {
     background-color: #cb7713;
