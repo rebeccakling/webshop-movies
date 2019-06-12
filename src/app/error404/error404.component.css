@@ -1,0 +1,40 @@
+.containerError { 
+    background-color:lightgray;
+    margin-top: 200px;
+}
+  
+.iconError {
+    padding-top: 20px;
+    color: darkred;
+    font-size: 40px;
+}
+
+h1 {
+    font-size: 25px;
+    color: black;
+}
+p {
+    padding-top: 10px;
+    color: black;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .iconError {
+        font-size: 45px;
+    }
+    
+    h1 {
+        font-size: 30px;
+    }
+    
+    
+
+}
+
+@media screen and (min-width: 992px) { 
+
+   
+ 
+}

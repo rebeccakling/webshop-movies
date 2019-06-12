@@ -13,7 +13,7 @@
     right: 2.2em;
     width: 25px;
     height: 25px;
-    background-color: lightgrey;
+    background-color: #bfbfbf;
     border-radius: 50%;
     color: black;
     padding: 0;
@@ -38,9 +38,7 @@
     width: 300px;
     height: 500px;
     overflow: scroll;
-    padding: 2em;
-
- 
+    padding: 2em; 
 }
 
 .closeDropDownIcon {
@@ -48,8 +46,6 @@
     color: #cb7713;
     padding-top: 10px;
     align-items: right;
-    
-
 }
 
 .single-dropDown-item {
@@ -59,14 +55,11 @@
 .icon {
     color: #cb7713;
     font-size: 25px;
-    margin-top: 35px;
- 
-
-    
+    margin-top: 35px;  
 }
 .admin {
-    color: #cb7713;
-    font-size: 25px;
+    color:#bfbfbf;
+    font-size: 20px;
     margin-top: 35px;
     padding-left: 10px;
 
@@ -82,10 +75,6 @@
 h2 {
     padding-top: 15px;
 }
-
-/* .add {
-    padding: 0.5em;
-} */
 
 .add {
     width: 20px;
@@ -121,7 +110,7 @@ h2 {
         
     }
     .admin {
-        font-size: 30px;
+        font-size: 25px;
         margin-top: 35px;
         padding-left: 10px;
     
@@ -129,8 +118,6 @@ h2 {
 
 
 
-
-  
 
 
 }
