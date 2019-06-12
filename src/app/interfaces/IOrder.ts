@@ -7,6 +7,7 @@ export interface IOrder {
     totalPrice: number;
     status: number;
     orderRows: IOrderRow[];
+  
 }
 
 export interface IOrderRow {

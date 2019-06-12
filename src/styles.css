@@ -7,6 +7,7 @@
  body {
      background-color: #1a1a1a;
      color: white;
+     font-family: Quicksand;
  }
  
  .row {
@@ -14,6 +15,3 @@
    
  }
 
- div {
-     /* border: 1px solid red; */
- }

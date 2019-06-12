@@ -146,7 +146,7 @@ export class CheckoutComponent implements OnInit {
       this.dataService.postOrder(order).subscribe();
       this.clearCart();
 
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/confirmed']);
 
     }
 

@@ -1,5 +1,5 @@
 <div class='row wrapperCheckout justify-content-center'>
-  <div class="col-10 text-center hedingCheckout">
+  <div class="col-10 text-center">
     <h1> Min kundkorg</h1>
   </div>
 </div>
@@ -35,7 +35,7 @@
   <div class="row justify-content-center">
     <div class="col-10 col-md-8 col-lg-5 cardForm text-center">
       <form [formGroup]="orderForm" (ngSubmit)="postOrder()" #formDir="ngForm">
-        <label for="email">Mejladress</label><br>
+        <label class="labelEmail" for="email">E-mailadress</label><br>
         <input name="email" type="text" formControlName="emailAdress"><br>
         <div *ngIf="orderForm.get('emailAdress').invalid && (formDir.submitted || orderForm.get('emailAdress').dirty || orderForm.get('emailAdress').touched)">
           <div *ngIf="orderForm.get('emailAdress').errors.required">
@@ -46,22 +46,23 @@
           </div>
         </div>
 
+       
         <label class="labelPayment" for="paymentMethod">Välj betalsätt</label><br>
+        <div><i class="fab fa-cc-visa visaCard"></i><i class="fab fa-cc-paypal payPalCard"></i> </div>
         <select id="paymentMethod" formControlName="paymentMethod">
           <option selected="selected" value="">Betalningsmetod:</option>
-          <option value="card">Card</option>
+          <option value="card">VISA</option>
           <option value="paypal">PayPal</option>
         </select><br>
+
+
         <div *ngIf="orderForm.get('paymentMethod').invalid && formDir.submitted">
           <div *ngIf="orderForm.get('paymentMethod').errors.required">
             <p class="errorMessage">Du måste välja betalningsmetod</p>
           </div>
         </div><br>
    
-          <button class="finishOrderBtn" type="submit">Slutför ditt köp</button>
-       
-
-        
+          <button class="btn buttonCheckout" type="submit">Slutför ditt köp</button>
 
       </form>
     </div>
@@ -70,6 +71,3 @@
 </section>
 
 
-<!-- {{orderForm.status}}
-{{orderForm.value.emailAdress}}
-{{orderForm.value.paymentMethod}} -->

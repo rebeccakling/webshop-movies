@@ -40,6 +40,11 @@ export class HeaderComponent implements OnInit {
     this.countTotalPrice();
   }
 
+  closeDropDown() {
+    this.showShopphingCart = !this.showShopphingCart;
+    this.countTotalPrice();
+  }
+
   countTotalPrice() {
 
     this.totalSum = 0;

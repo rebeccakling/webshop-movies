@@ -6,12 +6,11 @@
     position: fixed;
     z-index: 1; 
 }
-
 #totalAmount {
     text-align: center !important;
     position: absolute;
-    top: 1.5em;
-    right: 3.2em;
+    top: 0.7em;
+    right: 2.2em;
     width: 25px;
     height: 25px;
     background-color: lightgrey;
@@ -19,9 +18,12 @@
     color: black;
     padding: 0;
 }
+
 .dropDownImages {
     max-height: 100px;
+ 
 }
+
 .filmbutiken-logo {
     max-width: 300px;
     margin-top: 30px;
@@ -37,21 +39,34 @@
     height: 500px;
     overflow: scroll;
     padding: 2em;
+
  
 }
+
+.closeDropDownIcon {
+    font-size: 25px;
+    color: #cb7713;
+    padding-top: 10px;
+    align-items: right;
+    
+
+}
+
 .single-dropDown-item {
     margin: 1em 0;
 }
 
 .icon {
     color: #cb7713;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 35px;
+ 
+
     
 }
 .admin {
     color: #cb7713;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 35px;
     padding-left: 10px;
 
@@ -63,9 +78,15 @@
     margin-top: 5px;
     font-size: 12px;
 }
-.add {
-    padding: 0.5em;
+
+h2 {
+    padding-top: 15px;
 }
+
+/* .add {
+    padding: 0.5em;
+} */
+
 .add {
     width: 20px;
     height: 20px;
@@ -76,7 +97,7 @@
 
 } 
 
-/* .minus {
+.minus {
     width: 20px;
     height: 20px;
     background-color: lightgray;
@@ -84,10 +105,40 @@
     color: black;
     padding: 2.3px;
     
-} */ 
+} 
 
 .info-wrapper {
     padding-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .icon {
+        color: #cb7713;
+        font-size: 30px;
+        margin-top: 35px;
+    
+        
+    }
+    .admin {
+        font-size: 30px;
+        margin-top: 35px;
+        padding-left: 10px;
+    
+    }
+
+
+
+
+  
+
+
+}
+
+@media screen and (min-width: 992px) { 
+
+   
+ 
 }
 
 

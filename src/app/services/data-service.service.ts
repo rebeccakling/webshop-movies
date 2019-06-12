@@ -24,7 +24,7 @@ export class DataServiceService {
 
   fetchOrderData(): Observable<IOrder[]> {
     return this.httpClient.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=14');
-   }
+  }
 
   
 
