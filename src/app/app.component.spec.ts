@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DetailsComponent } from './details/details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Error404Component } from './error404/error404.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +23,8 @@ describe('AppComponent', () => {
         HeaderComponent,
         FooterComponent,
         DetailsComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        Error404Component
       ], 
     })
   }));

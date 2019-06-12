@@ -1,14 +1,16 @@
-<div class="row orderContainer">
-  <div class="col-10">
-   <h1>Order</h1>
-   
-      <div *ngFor="let order of orders">
-        <p>Id: {{ order.id }}, CompanyId: {{ order.companyId}} Created by: {{ order.createdBy }}, Created: {{ order.created }}, Total price:
-          {{ order.totalPrice}} </p>
-        <p *ngFor="let orderRow of order.orderRows">
-          Product ID: {{ orderRow.productId }}
-        </p>
-   
-      </div>
+<div class="row orderContainer justify-content-center">
+
+  <div class="col-10 col-md-8 col-lg-6 cardOrder">
+    <h1><i class="far fa-folder-open iconOrder text-center"></i> Orderar </h1>
+    <div *ngFor="let order of orders">
+      <p>Id: {{ order.id }},<br>
+        FöretagsId: {{ order.companyId}} <br>
+        Användare: {{ order.createdBy }} <br>
+        Skapad: {{ order.created }} <br>
+        Total summa: {{ order.totalPrice}} </p>
+      <hr>
+      <p *ngFor="let orderRow of order.orderRows">
+        Product ID: {{ orderRow.productId }}</p>
     </div>
-    </div>
+  </div>
+</div>
