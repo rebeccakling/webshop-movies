@@ -12,6 +12,7 @@ import { DetailsComponent } from './details/details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import { ConfirmedComponent } from './confirmed/confirmed.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AdminComponent } from './admin/admin.component';
     FooterComponent,
     DetailsComponent,
     CheckoutComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmedComponent
 
   ],
   imports: [

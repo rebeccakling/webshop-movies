@@ -93,8 +93,7 @@ export class MockDataService implements IDataService {
         orderRows: this.orderRowsContent
       }
     ]
-
-
+    
   constructor() { }
   
   fetchMovies(): Observable<IMovie[]> {

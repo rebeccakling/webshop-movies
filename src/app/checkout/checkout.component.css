@@ -46,6 +46,47 @@ margin-top: 150px;
     padding-left: 20px;
 }
 
+.buttonCheckout {
+    background-color: #cb7713;
+    color: white;
+    margin-bottom: 5px; 
+    margin-top: 5px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.labelPayment {
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+.labelEmail {
+    font-size: 15px;
+    padding-top: 20px;
+}
+
+#paymentMethod {
+ color: gray;
+ border: 1px solid black;
+ font-size: 15px;
+}
+
+.errorMessage {
+    color: darkred;
+}
+
+.visaCard {
+    font-size: 25px;
+    color: gray;
+}
+.payPalCard{
+    font-size: 25px;
+    color: gray;
+    padding-left: 10px;
+}
+
+
+
 @media screen and (min-width: 768px) {
     .wrapperCheckout {
         margin-top: 150px;
@@ -63,6 +104,7 @@ margin-top: 150px;
          h2 {
              font-size: 18px;
          }
+
     
   
 
