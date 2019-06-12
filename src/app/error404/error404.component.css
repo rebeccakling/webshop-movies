@@ -1,6 +1,7 @@
 .containerError { 
-    background-color:lightgray;
-    margin-top: 200px;
+    background-color: #bfbfbf;
+    margin-top: 180px;
+    margin-bottom: 200px;
 }
   
 .iconError {
@@ -12,6 +13,7 @@
 h1 {
     font-size: 25px;
     color: black;
+    font-weight: 900;
 }
 p {
     padding-top: 10px;
