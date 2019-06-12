@@ -26,8 +26,6 @@ export class InteractionService {
         this.cart[i].amount++;
         addedMovie = true;
         this.cart[i].totalPriceOfMovie += this.cart[i].movie.price;
-        // console.log(movieToAdd.id);
-        // console.log(movieToAdd.name);
       }
 
     }
@@ -35,9 +33,7 @@ export class InteractionService {
       this.cart.push({
         movie: movieToAdd, amount: 1,
         totalPriceOfMovie: movieToAdd.price
-      }); 
-      // console.log(movieToAdd.id);
-      // console.log(movieToAdd.name);
+      });
     }
     this.movieSourcen.next(this.cart);
 
@@ -81,13 +77,13 @@ export class InteractionService {
     this.saveCartToLocalStorage();
   }
 
-  clearCartLocalstorage(){
+  clearCartLocalstorage() {
     this.cart.splice(0, this.cart.length);
- 
+
     this.movieSourcen.next(this.cart);
- 
+
     this.saveCartToLocalStorage();
- 
+
   }
 
 }

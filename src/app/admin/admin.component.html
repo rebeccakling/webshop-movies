@@ -1,16 +1,29 @@
-<div class="row orderContainer justify-content-center">
+<main role="main">
+  <article class="row orderContainer justify-content-center">
+  
+      <div class="col-10 col-md-8 col-lg-6 cardOrder">
+        <h1><i class="far fa-folder-open iconOrder "></i> Orderar </h1>
 
-  <div class="col-10 col-md-8 col-lg-6 cardOrder">
-    <h1><i class="far fa-folder-open iconOrder text-center"></i> Orderar </h1>
-    <div *ngFor="let order of orders">
-      <p>Id: {{ order.id }},<br>
-        FöretagsId: {{ order.companyId}} <br>
-        Användare: {{ order.createdBy }} <br>
-        Skapad: {{ order.created }} <br>
-        Total summa: {{ order.totalPrice}} </p>
-      <hr>
-      <p *ngFor="let orderRow of order.orderRows">
-        Product ID: {{ orderRow.productId }}</p>
-    </div>
-  </div>
-</div>
+        <div class="orders" *ngFor="let orders of extendedOrders">
+          <hr>
+          <div *ngFor="let name of orders.movieNames">
+            <p>Film: {{ name }}</p>
+          </div>
+
+          <div *ngFor="let orderRow of orders.order.orderRows">
+            <p>Produkt ID: {{ orderRow.productId }}</p>
+            <p> Antal: {{ orderRow.amount }}</p>
+          </div>
+
+          <p>ID: {{ orders.order.id }}</p>
+          <p>Företags ID: {{ orders.order.companyId }}</p>
+          <p>Skapad av: {{ orders.order.createdBy }}</p>
+          <p>Skapad: {{ orders.order.created }}</p>
+          <p>Totalpris: {{ orders.order.totalPrice }}:- </p>
+
+        </div>
+        <hr>
+      </div>
+   
+  </article>
+</main>

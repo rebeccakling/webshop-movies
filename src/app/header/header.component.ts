@@ -21,19 +21,17 @@ export class HeaderComponent implements OnInit {
   constructor(private interactionService: InteractionService) { }
 
   ngOnInit() {
-   this.interactionService.printCartFromLocalStorage();
-   this.cart = this.interactionService.getCart();
-   this.countTotalAmount();
-   this.countTotalPrice();
+    this.interactionService.printCartFromLocalStorage();
+    this.cart = this.interactionService.getCart();
+    this.countTotalAmount();
+    this.countTotalPrice();
 
     this.interactionService.movieSource$.subscribe(
       cart => {
         this.print(cart);
-
       }
     )
   }
-
 
   dropDownMovieCart() {
     this.showShopphingCart = !this.showShopphingCart;
@@ -62,47 +60,46 @@ export class HeaderComponent implements OnInit {
   print(cart) {
 
     console.log('movie: ' + cart);
- 
+
     this.cart = cart;
- 
+
     this.countTotalAmount();
     this.countTotalPrice();
- 
+
   }
 
-  countTotalAmount(){
+  countTotalAmount() {
     this.totalAmount = 0;
- 
-    for(let i = 0; i < this.cart.length; i++){
+
+    for (let i = 0; i < this.cart.length; i++) {
       // console.log('In loop: ', this.cart[i]);
- 
+
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
- 
+
       console.log('total amount is: ' + this.totalAmount);
- 
+
     }
   }
 
   addMovie(singleMovie: IMovie) {
 
     this.interactionService.sendCart(singleMovie);
- 
+
     this.cart = this.interactionService.cart;
- 
+
     this.countTotalAmount();
     this.countTotalPrice();
- 
+
   }
- 
- 
+
   deleteMovie(id) {
- 
+
     this.interactionService.subtractMovie(id);
- 
+
     this.countTotalAmount();
     this.countTotalPrice();
- 
+
   }
 
 }

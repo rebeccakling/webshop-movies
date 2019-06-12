@@ -1,10 +1,8 @@
 .footer {
+    background-color: #2f2c2c;
     height: 140px;
     padding-bottom: 1em;
-    background-color: #2f2c2c;
-    margin-top: 3em;
-    
-    
+    margin-top: 3em;  
   }
 
   .filmbutikenLogo {
@@ -13,10 +11,10 @@
   }
   
   .iconFooter {
-      padding-top: 20px;
-    font-size: 1.5rem;
+    padding-top: 20px;
+    font-size: 1.7rem;
+    text-shadow: 0.5px 0.5px black;
   }
-  
   .facebookIcon,
   .instagramIcon
  {
