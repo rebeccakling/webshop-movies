@@ -7,10 +7,16 @@ export interface IOrder {
     totalPrice: number;
     status: number;
     orderRows: IOrderRow[];
-  
+
 }
 
 export interface IOrderRow {
     productId: number;
     amount: number;
+}
+
+export interface IExtendedOrder {
+    order: IOrder;
+    movieNames: string[];
+
 }

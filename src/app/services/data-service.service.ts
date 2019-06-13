@@ -26,7 +26,5 @@ export class DataServiceService {
     return this.httpClient.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=14');
   }
 
-  
-
   constructor(private httpClient: HttpClient) { }
 }
