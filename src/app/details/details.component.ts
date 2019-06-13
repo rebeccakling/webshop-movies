@@ -29,18 +29,18 @@ export class DetailsComponent implements OnInit {
 
 
   ngOnInit() {
+    //När jag klickar på film (mer info) så skickar det id
     this.route.paramMap.subscribe(myParams => {
       let id = myParams.get('id');
-      //console.log(id);
+
       this.service.fetchSingleMovie(id).subscribe((data) => {
         this.singleMovie = data;
       });
     });
   }
 
-
+  //Ropar på funktionen sendCart som ligger i interactionService
   addMovieToCart(product) {
-    console.log(product);
     this.interactionService.sendCart(product);
   }
 

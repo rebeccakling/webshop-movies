@@ -10,14 +10,14 @@
                     </a>
                 </div>
 
-                <div class='col-8 col-md-6 col-lg-4 text-right'>
+                <div class='col-8 col-md-6 col-lg-4 text-right cartContainer'>
 
-                    <i class='fas fa-shopping-cart icon' (click)='dropDownMovieCart()'></i>
+                    <i class='fas fa-shopping-cart icon' (click)='cartToggle()'></i>
                     <a routerLink='/admin'><i class="fas fa-user admin"></i></a>
                     <div id="totalAmount">{{totalAmount}}</div>
 
-                    <div class='dropDownCart text-left' *ngIf='showShopphingCart'>
-                        <i class="fas fa-times closeDropDownIcon" (click)='closeDropDown()'></i>
+                    <div class='dropDownCart text-left hideCart'>
+                        <i class="fas fa-times closeDropDownIcon" (click)='cartToggle()'></i>
                         <h2>Min varukorg:</h2>
 
                         <div class="single-dropDown-item" *ngFor='let singleMovie of cart'>
@@ -39,7 +39,7 @@
                         </div>
                         <hr>
                         <strong>Total summa: {{totalSum}} </strong>sek
-                        <button type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå vidare</button>
+                        <button *ngIf="totalSum > 0" type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå vidare</button>
                     </div>
                 </div>
             </div>
