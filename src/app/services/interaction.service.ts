@@ -20,7 +20,7 @@ export class InteractionService {
     let addedMovie = false;
 
     //movieToAdd.id = id på klickade filmen
-    // this.cart[i].movie.id = id på den som finns i cart
+    //this.cart[i].movie.id = id på den som finns i cart
     for (let i = 0; i < this.cart.length; i++) {
       if (movieToAdd.id === this.cart[i].movie.id) {
         this.cart[i].amount++;

@@ -1,6 +1,6 @@
 .frameMovies {
     overflow: hidden;  
-    
+    border: 1px solid white;
 }
 
 .image {
