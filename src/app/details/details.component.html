@@ -1,3 +1,30 @@
-<h2>{{singleMovie.name}}</h2>
-<img src="{{singleMovie.imageUrl}}" alt="">
-<div>{{singleMovie.description}}</div>
+<div class='row arrowContainer justify-content-start'>
+    <div class="col-2 text-center">
+        <a class="fas fa-reply goBackArrow" routerLink=""></a>
+    </div>
+</div>
+
+<div class='row  justify-content-start'>
+    <div class="col-2 text-center">
+        <a class="goBackLink" routerLink="">Tillbaka</a>
+    </div>
+</div>
+
+
+<div class='row justify-content-center'>
+    <div class="col-12 movieTitle text-center">
+        <h1>{{singleMovie.name}}</h1><br>
+    </div>
+</div>
+
+<div class='row justify-content-center'>
+    <div class='col-6 col-md-4 col-lg-3 movieImage '>
+        <img src="{{singleMovie.imageUrl}}" alt="{{singleMovie.name}}">
+    </div>
+
+    <div class='col-10 text-center col-md-4 col-lg-3 text-md-left descriptionMovie'>
+        <p>{{singleMovie.description}}</p>
+        <p>{{singleMovie.price}} sek/st</p>
+        <button type='button' (click)="addMovieToCart(singleMovie)" class='btn addToCard'>Lägg till</button>
+    </div>
+</div>

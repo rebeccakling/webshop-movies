@@ -1,7 +1,33 @@
-.cardMovie {
-    /* border: 1px solid black; */
-    padding: 0;
+.cardMovie{
+    min-height: 370px;
 }
 
+.containerMovies {
+    margin-top: 50px;
+}
 
+.mainContainerText {
+    margin-top: 130px;
+}
 
+.indexHeading {
+    font-size: 25px;
+}
+
+p {
+    font-style: italic; 
+}
+
+@media screen and (min-width: 768px) {
+
+    .indexHeading {
+        font-size: 30px;
+    }
+    
+}
+
+@media screen and (min-width: 992px) { 
+
+   
+ 
+}

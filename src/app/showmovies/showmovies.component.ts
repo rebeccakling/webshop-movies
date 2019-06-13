@@ -16,7 +16,7 @@ export class ShowmoviesComponent implements OnInit {
   
   ngOnInit() {
     //Här så subscribear vi på det datat som vi får från getData.
-    //fetchMovie  är all data är värdet av hela getData funktionen.
+    //fetchMovie är all data är värdet av hela getData funktionen.
     this.dataService.fetchMovies().subscribe(fetchMovie => this.moviesArray = fetchMovie);
   }
 

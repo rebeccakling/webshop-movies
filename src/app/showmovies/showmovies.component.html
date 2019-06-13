@@ -1,8 +1,15 @@
+<main role='main'>
 
-<ul class="row">
-    <app-productpresentation *ngFor="let movie of moviesArray" [product]="movie" class="cardMovie col-6 col-md-3"></app-productpresentation>
-</ul>
-<!-- 
-(remove)="removeIt($event)
+    <div class="row mainContainerText justify-content-center">
 
-<app-add-to-cart></app-add-to-cart> -->
+        <div class='col-10 col-md-6 col-lg-4 welcomeText text-center '>
+            <h1 class="indexHeading">Din filmbutik online</h1>
+            <p>Vi är sveriges största filmbutik online som erbjuder dom senaste filmerna till bästa priserna.</p>
+        </div>
+    </div>
+
+    <ul class='row containerMovies justify-content-center'>
+        <app-productpresentation *ngFor='let movie of moviesArray' [product]='movie' class='cardMovie col-6 col-md-4 col-lg-3'></app-productpresentation>
+    </ul>
+
+</main>

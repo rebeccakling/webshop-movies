@@ -1,0 +1,73 @@
+<main role='main'>
+
+  <div class='row wrapperCheckout justify-content-center'>
+    <div class="col-10 text-center">
+      <h1> Min varukorg</h1>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row justify-content-center single-dropDown-item" *ngFor='let singleMovie of cart'>
+    <div class="col-5 col-md-3 col-lg-2 big-wrapper d-flex">
+      <div>
+        <img class="imageCheckout" src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3 col-lg-2 info-wrapper">
+      <p class="movieTitle"><strong>{{singleMovie.movie.name}}</strong></p>
+      <p>{{singleMovie.movie.price}} sek/st</p>
+      <p><i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+      {{singleMovie.amount}}
+      <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i></p>
+      <p>Total: {{singleMovie.totalPriceOfMovie}}:-</p>
+    </div>
+  </div>
+
+  <div class='row justify-content-center'>
+    <div class="col-10 text-center">
+      <p class="totalSum"><strong>Total summa: {{totalSum}}:-</strong></p>
+    </div>
+  </div>
+
+  <section>
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-8 col-lg-5 cardForm text-center">
+        <h2>Dina uppgifter</h2>
+
+        <form [formGroup]="orderForm" (ngSubmit)="postOrder()" #formDir="ngForm">
+          <p><label class="labelEmail" for="email">E-mailadress</label></p>
+          <p><input name="email" type="text" formControlName="emailAdress"></p>
+
+          <div *ngIf="orderForm.get('emailAdress').invalid && (formDir.submitted || orderForm.get('emailAdress').dirty || orderForm.get('emailAdress').touched)">
+            <div *ngIf="orderForm.get('emailAdress').errors.required">
+              <p class="errorMessage">Du måste fylla i mejladress.</p>
+            </div>
+            <div *ngIf="orderForm.get('emailAdress').errors.email">
+              <p class="errorMessage">Du måste skriva in en mejladress.</p>
+            </div>
+          </div>
+
+          <label class="labelPayment" for="paymentMethod">Välj betalsätt</label>
+          <div><i class="fab fa-cc-visa visaCard"></i><i class="fab fa-cc-paypal payPalCard"></i></div>
+
+          <select id="paymentMethod" formControlName="paymentMethod">
+            <option selected="selected" value="">Betalningsmetod:</option>
+            <option value="card">VISA</option>
+            <option value="paypal">PayPal</option>
+          </select>
+
+          <div *ngIf="orderForm.get('paymentMethod').invalid && formDir.submitted">
+            <div *ngIf="orderForm.get('paymentMethod').errors.required">
+              <p class="errorMessage">Du måste välja betalningsmetod</p>
+            </div>
+          </div><br>
+
+          <button class="btn buttonCheckout" type="submit">Slutför ditt köp</button>
+        </form>
+
+      </div>
+    </div>
+
+  </section>
+</main>

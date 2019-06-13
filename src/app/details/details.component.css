@@ -1,0 +1,78 @@
+.arrowContainer{
+    margin-top: 150px;
+}
+
+.movieTitle{ 
+    margin-top: 30px;
+   
+}
+h1 {
+    font-size: 25px;
+    text-shadow: 0.5px 0.5px;
+}
+.movieImage img {
+    object-fit: cover;
+    height: 280px;
+    border: 1px solid black;
+} 
+.descriptionMovie {
+    margin-top: 20px;
+}
+
+.addToCard {
+    background-color: #cb7713;
+    color: white;
+    margin-bottom: 5px; 
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.goBackArrow {
+    font-size: 30px;
+    color: #cb7713;
+    text-decoration: none;
+}
+
+.goBackLink {
+    font-size: 15px;
+    color: #cb7713;
+    text-decoration: none;
+}
+
+.goBackLink:hover {
+    font-size: 17px;
+}
+
+@media screen and (min-width: 768px) {
+
+    .descriptionMovie {
+        margin-top: 0;
+    } 
+
+       
+.movieImage img {
+    height: 320px;
+
+}
+    
+
+}
+
+@media screen and (min-width: 992px) { 
+
+   
+.movieImage img {
+    height: 350px;
+
+}
+
+.movieTitle {
+    margin-bottom: 25px;
+}
+    
+  
+
+  
+ 
+ 
+}

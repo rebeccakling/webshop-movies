@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ICartProduct } from '../interfaces/ICartProduct';
 import { InteractionService } from '../services/interaction.service';
 import { IMovie } from '../interfaces/IMovie';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -12,56 +13,87 @@ import { IMovie } from '../interfaces/IMovie';
 export class HeaderComponent implements OnInit {
 
   cart: ICartProduct[] = [];
-
+  showShopphingCart = false;
+  totalSum: number;
+  totalAmount: number;
 
   //Får jag tillgång till det som finns i interactionService-klassen
   constructor(private interactionService: InteractionService) { }
 
   ngOnInit() {
-    this.interactionService.movieSource$.subscribe(
-      info => {
-        this.addToCart(info);
 
+    this.interactionService.printCartFromLocalStorage();
+    this.cart = this.interactionService.getCart();
+    this.countTotalAmount();
+    this.countTotalPrice();
+
+    this.interactionService.movieSource$.subscribe(
+      cart => {
+        this.print(cart);
       }
     )
-    //this.saveCartToLocalStorage();
-    this.printCart();
+    $(document).on('click', function (e) {
+      if ($(e.target).closest(".cartContainer").length === 0) {
+        $(".dropDownCart").removeClass("showCart");
+        $(".dropDownCart").addClass("hideCart");
+      }
+    });
   }
 
-  addToCart(movieToAdd: IMovie) {
+  cartToggle(){
+    console.log('cartToggle');
+    if($(".dropDownCart").hasClass('hideCart')) {
+      $(".dropDownCart").removeClass("hideCart");
+      $(".dropDownCart").addClass("showCart");
+    }
+    else {
+      $(".dropDownCart").addClass("hideCart");
+      $(".dropDownCart").removeClass("showCart");
+    }
+  }
 
-    let addedMovie = false;
+  countTotalPrice() {
+    this.totalSum = 0;
+    console.log('Count total: ', this.cart);
 
     for (let i = 0; i < this.cart.length; i++) {
-      if (movieToAdd.id === this.cart[i].movie.id) {
-        this.cart[i].amount++;
-        addedMovie = true;
-        // console.log(movieToAdd.id);
-        // console.log(movieToAdd.name);
-      }
-    }
-    if (addedMovie === false) {
-      this.cart.push({ movie: movieToAdd, amount: 1 });
-      // console.log(movieToAdd.id);
-      // console.log(movieToAdd.name);
-    }
+      console.log('In loop: ', this.cart[i]);
 
-    this.saveCartToLocalStorage();
-
+      // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
+      this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
+    }
   }
 
-  saveCartToLocalStorage() {
-    localStorage.setItem('myCartLocalStorage', JSON.stringify(this.cart));
+  print(cart) {
+    this.cart = cart;
 
-    this.printCart();
+    this.countTotalAmount();
+    this.countTotalPrice();
   }
 
-  printCart() {
-    if(localStorage.getItem('myCartLocalStorage') === null){
-      this.cart = [];
-    }else {
-      let fetchLocalStorageCart = localStorage.getItem('myCartLocalStorage');
-      this.cart = JSON.parse(fetchLocalStorageCart);
+  countTotalAmount() {
+    this.totalAmount = 0;
+
+    for (let i = 0; i < this.cart.length; i++) {
+      // console.log('In loop: ', this.cart[i]);
+
+      // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
+      this.totalAmount += this.cart[i].amount;
     }
+  }
+
+  addMovie(singleMovie: IMovie) {
+    this.interactionService.sendCart(singleMovie);
+    this.cart = this.interactionService.cart;
+
+    this.countTotalAmount();
+    this.countTotalPrice();
+  }
+
+  deleteMovie(id) {
+    this.interactionService.subtractMovie(id);
+
+    this.countTotalAmount();
+    this.countTotalPrice();
   }
 }
