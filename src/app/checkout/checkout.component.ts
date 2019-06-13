@@ -17,7 +17,6 @@ export class CheckoutComponent implements OnInit {
 
   timeNow = moment().format('lll');
   cart: ICartProduct[] = [];
-  showShopphingCart = false;
   totalSum: number;
   totalAmount: number;
   orderForm: FormGroup = this.fb.group({
@@ -27,7 +26,7 @@ export class CheckoutComponent implements OnInit {
 
   });
 
-  //Får jag tillgång till det som finns i interactionService-klassen
+  //Får jag tillgång till det som finns i bl.a interactionService-klassen
   constructor(private interactionService: InteractionService, private router: Router, private fb: FormBuilder, private dataService: DataServiceService) { }
 
   ngOnInit() {
@@ -44,20 +43,12 @@ export class CheckoutComponent implements OnInit {
     )
   }
 
-
-  dropDownMovieCart() {
-    this.showShopphingCart = !this.showShopphingCart;
-    this.countTotalPrice();
-  }
-
   countTotalPrice() {
 
     this.totalSum = 0;
-    console.log('Count total: ', this.cart);
 
     for (let i = 0; i < this.cart.length; i++) {
-      console.log('In loop: ', this.cart[i]);
-
+    
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
     }
@@ -65,8 +56,6 @@ export class CheckoutComponent implements OnInit {
   }
 
   print(cart) {
-
-    console.log('movie: ' + cart);
 
     this.cart = cart;
 
@@ -79,7 +68,7 @@ export class CheckoutComponent implements OnInit {
     this.totalAmount = 0;
 
     for (let i = 0; i < this.cart.length; i++) {
-      // console.log('In loop: ', this.cart[i]);
+
 
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
@@ -89,20 +78,18 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  //Plus ikonen går till denna funktionen går till sentCart funktionen i interactionservice, och uppdaterar cart.
   addMovie(singleMovie: IMovie) {
-
     this.interactionService.sendCart(singleMovie);
 
     this.cart = this.interactionService.cart;
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
 
-
+  //Plus ikonen går till denna funktionen som går till delete funktionen i interactionservice, och uppdaterar cart.
   deleteMovie(id) {
-
     this.interactionService.subtractMovie(id);
 
     this.countTotalAmount();
@@ -110,27 +97,18 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  //Här postar en order till databasen, man hämtar id från formuläret och från egenskaper
   postOrder() {
-
     if (this.orderForm.valid) {
-
-
-
       let orderRowsContent = [];
 
-
       for (let i = 0; i < this.cart.length; i++) {
-
         let amount = this.cart[i].amount;
         let id = this.cart[i].movie.id;
 
         orderRowsContent.push({ productId: id, amount: amount });
-
       }
-      console.log('variabel orderrows ', orderRowsContent);
-      console.log('bajs ' + this.timeNow);
-
-
+    
       let order: IOrder = {
         id: 0,
         companyId: 14,
@@ -147,15 +125,11 @@ export class CheckoutComponent implements OnInit {
       this.clearCart();
 
       this.router.navigate(['/confirmed']);
-
     }
-
   }
 
+  //Ropar på funktionen clearCartLocalstorage som finns i interactionService
   clearCart() {
     this.interactionService.clearCartLocalstorage();
   }
-
 }
-
-
