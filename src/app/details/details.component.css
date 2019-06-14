@@ -3,9 +3,9 @@
 }
 
 .movieTitle{ 
-    margin-top: 30px;
-   
+    margin-top: 30px;  
 }
+
 h1 {
     font-size: 25px;
     text-shadow: 0.5px 0.5px;
@@ -44,35 +44,21 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-
     .descriptionMovie {
         margin-top: 0;
     } 
 
-       
-.movieImage img {
-    height: 320px;
-
-}
-    
-
+    .movieImage img {
+        height: 320px;
+    }  
 }
 
-@media screen and (min-width: 992px) { 
+@media screen and (min-width: 992px) {  
+    .movieImage img {
+        height: 350px;
+    }
 
-   
-.movieImage img {
-    height: 350px;
-
-}
-
-.movieTitle {
-    margin-bottom: 25px;
-}
-    
-  
-
-  
- 
- 
+    .movieTitle {
+        margin-bottom: 25px;
+    }   
 }

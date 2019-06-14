@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { IMovie } from "../interfaces/IMovie";
 import { InteractionService } from "../services/interaction.service";
 
@@ -19,7 +19,4 @@ export class ProductpresentationComponent implements OnInit {
   addMovieToCart(product) {
     this.interactionService.sendCart(product);
   }
-
-
-
 }

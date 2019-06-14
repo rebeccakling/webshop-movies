@@ -16,8 +16,6 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'confirmed', component: ConfirmedComponent },
   { path: '**', component: Error404Component }
-
-
 ];
 
 @NgModule({

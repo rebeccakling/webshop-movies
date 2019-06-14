@@ -34,26 +34,14 @@ li {
     font-size: 12px;
 }
 
-
 @media screen and (min-width: 768px) {
-
-    
-    .image {
+     .image {
         height: 350px;  
     }
-
     .addToCard {
         margin-bottom: 15px;     
     }
-
     .addToCard:hover {
         font-size: 15px;
     }
-
-}
-
-@media screen and (min-width: 992px) { 
-
-   
- 
 }

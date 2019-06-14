@@ -28,22 +28,22 @@
                                 </div>
 
                                 <div class="info-wrapper">
-                                    {{singleMovie.movie.name}}<br>
-                                    <i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-                                    {{singleMovie.amount}}
-                                    <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i><br>
-                                    {{singleMovie.movie.price}} sek <br>
-                                    Total: {{singleMovie.totalPriceOfMovie}} sek
+                                    <p class="movieTitleDropdown">{{singleMovie.movie.name}}</p>
+                                    <p><i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
+                                        {{singleMovie.amount}}
+                                        <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i></p>
+                                    <p>{{singleMovie.movie.price}}:- /st</p>
+                                    <p>Total: {{singleMovie.totalPriceOfMovie}}:-</p>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <strong>Total summa: {{totalSum}} </strong>sek
-                        <button *ngIf="totalSum > 0" type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå vidare</button>
+                        <p>Total summa: <strong>{{totalSum}}:-</strong></p>
+                        <button *ngIf="totalSum > 0" type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå
+                            vidare</button>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-
 </header>

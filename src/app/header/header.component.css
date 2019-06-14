@@ -20,15 +20,15 @@
 }
 
 .dropDownImages {
-    max-height: 100px;
- 
+    object-fit: cover;
+    height: 130px;
+    width: 85px;
 }
 
 .filmbutiken-logo {
     max-width: 300px;
     margin-top: 30px;
-    float: left;
-      
+    float: left;      
 }
 
 .dropDownCart {
@@ -36,12 +36,13 @@
     opacity: 0.9;
     position: absolute;
     z-index: 1; 
-    width: 250px;
+    width: 300px;
     height: 400px;
     overflow: scroll;
     padding: 2em; 
     right: 0;
     margin-top: 30px;
+    border-radius: 3px;
 }
 
 .closeDropDownIcon {
@@ -49,7 +50,6 @@
     padding-top: 5px;
     font-size: 1.5rem; 
     float: right; 
-
 }
 
 .single-dropDown-item {
@@ -83,6 +83,14 @@ h2 {
     font-size: 20px;
 }
 
+p.movieTitleDropdown {
+    font-size: 15px;
+}
+
+p {
+    margin-bottom: 0.5rem;
+}
+
 .add {
     width: 20px;
     height: 20px;
@@ -90,7 +98,6 @@ h2 {
     border-radius: 50%;
     color: black;
     padding: 2.3px; 
-
 } 
 
 .minus {
@@ -99,12 +106,12 @@ h2 {
     background-color: #bfbfbf;
     border-radius: 50%;
     color: black;
-    padding: 2.3px;
-    
+    padding: 2.3px;   
 } 
 
 .info-wrapper {
     padding-left: 20px;
+    font-size: 15px;
 }
 
 .showCart{
@@ -122,7 +129,6 @@ h2 {
     }
     
     .icon {
-        color: #cb7713;
         font-size: 25px;
         margin-top: 35px;
     
@@ -137,14 +143,4 @@ h2 {
     .buttonCheckout:hover {
         font-size: 15px;
     }
-
 }
-
-@media screen and (min-width: 992px) { 
-
-   
- 
-}
-
-
-

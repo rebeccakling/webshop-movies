@@ -30,12 +30,9 @@ ngOnInit() {
         this.service.fetchSingleMovie(productId).subscribe((data) => {
         
           this.extendedOrders[i].movieNames.push(data.name);
-
         });
       }
     }
   });
-
 }
-
 }

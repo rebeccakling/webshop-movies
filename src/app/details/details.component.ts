@@ -43,5 +43,4 @@ export class DetailsComponent implements OnInit {
   addMovieToCart(product) {
     this.interactionService.sendCart(product);
   }
-
 }
