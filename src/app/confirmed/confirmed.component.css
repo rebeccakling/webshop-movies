@@ -3,6 +3,7 @@ h1 {
     font-size: 25px;
     color: white;
 }
+
 p {
     padding-top: 10px; 
     color: white;
@@ -16,7 +17,6 @@ p {
 
 .goBackLinkHome:hover {
     font-size: 17px;
- 
 }
 
 @media screen and (min-width: 768px) {
@@ -24,11 +24,4 @@ p {
         margin-top: 180px;
         font-size: 30px;   
     }   
-  
-}
-
-@media screen and (min-width: 992px) { 
-
-   
- 
 }

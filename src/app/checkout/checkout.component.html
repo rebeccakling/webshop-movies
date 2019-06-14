@@ -2,7 +2,7 @@
 
   <div class='row wrapperCheckout justify-content-center'>
     <div class="col-10 text-center">
-      <h1> Min varukorg</h1>
+      <h1>Kassa</h1>
       <hr>
     </div>
   </div>
@@ -15,12 +15,12 @@
     </div>
 
     <div class="col-6 col-md-3 col-lg-2 info-wrapper">
-      <p class="movieTitle"><strong>{{singleMovie.movie.name}}</strong></p>
-      <p>{{singleMovie.movie.price}} sek/st</p>
+      <p class="movieTitle">{{singleMovie.movie.name}}</p>
+      <p>{{singleMovie.movie.price}}:- /st</p>
       <p><i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
       {{singleMovie.amount}}
       <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i></p>
-      <p>Total: {{singleMovie.totalPriceOfMovie}}:-</p>
+      <p><strong>Total: {{singleMovie.totalPriceOfMovie}}:-</strong></p>
     </div>
   </div>
 
@@ -65,9 +65,7 @@
 
           <button class="btn buttonCheckout" type="submit">Slutför ditt köp</button>
         </form>
-
       </div>
     </div>
-
   </section>
 </main>
