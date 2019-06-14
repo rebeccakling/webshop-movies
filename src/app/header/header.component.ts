@@ -41,7 +41,6 @@ export class HeaderComponent implements OnInit {
   }
 
   cartToggle(){
-    console.log('cartToggle');
     if($(".dropDownCart").hasClass('hideCart')) {
       $(".dropDownCart").removeClass("hideCart");
       $(".dropDownCart").addClass("showCart");
@@ -54,10 +53,8 @@ export class HeaderComponent implements OnInit {
 
   countTotalPrice() {
     this.totalSum = 0;
-    console.log('Count total: ', this.cart);
-
+ 
     for (let i = 0; i < this.cart.length; i++) {
-      console.log('In loop: ', this.cart[i]);
 
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
@@ -75,8 +72,7 @@ export class HeaderComponent implements OnInit {
     this.totalAmount = 0;
 
     for (let i = 0; i < this.cart.length; i++) {
-      // console.log('In loop: ', this.cart[i]);
-
+   
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
     }

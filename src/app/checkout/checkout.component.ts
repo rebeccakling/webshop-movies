@@ -38,7 +38,6 @@ export class CheckoutComponent implements OnInit {
     this.interactionService.movieSource$.subscribe(
       cart => {
         this.print(cart);
-
       }
     )
   }
@@ -52,7 +51,6 @@ export class CheckoutComponent implements OnInit {
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount;
     }
-
   }
 
   print(cart) {
@@ -61,7 +59,6 @@ export class CheckoutComponent implements OnInit {
 
     this.countTotalAmount();
     this.countTotalPrice();
-
   }
 
   countTotalAmount() {
@@ -69,16 +66,12 @@ export class CheckoutComponent implements OnInit {
 
     for (let i = 0; i < this.cart.length; i++) {
 
-
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount;
-
-      console.log('total amount is: ' + this.totalAmount);
-
     }
   }
 
-  //Plus ikonen går till denna funktionen går till sentCart funktionen i interactionservice, och uppdaterar cart.
+  //Plus ikonen går till sentCart funktionen i interactionservice, och uppdaterar carten.
   addMovie(singleMovie: IMovie) {
     this.interactionService.sendCart(singleMovie);
 
@@ -88,7 +81,7 @@ export class CheckoutComponent implements OnInit {
     this.countTotalPrice();
   }
 
-  //Plus ikonen går till denna funktionen som går till delete funktionen i interactionservice, och uppdaterar cart.
+  //Minus ikonen går till denna funktionen som går till delete funktionen i interactionservice, och uppdaterar carten.
   deleteMovie(id) {
     this.interactionService.subtractMovie(id);
 
@@ -97,7 +90,7 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-  //Här postar en order till databasen, man hämtar id från formuläret och från egenskaper
+  //Här postar en order till databasen, man hämtar id från formuläret och från egenskapen
   postOrder() {
     if (this.orderForm.valid) {
       let orderRowsContent = [];

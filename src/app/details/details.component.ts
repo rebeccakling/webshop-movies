@@ -26,8 +26,6 @@ export class DetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: DataServiceService, private interactionService: InteractionService) { }
 
-
-
   ngOnInit() {
     //När jag klickar på film (mer info) så skickar det id
     this.route.paramMap.subscribe(myParams => {
