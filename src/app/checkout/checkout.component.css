@@ -9,7 +9,6 @@ margin-top: 150px;
 .imageCheckout {
     max-height: 180px;
     border: 1px solid white;
-
  }
 
  h1 {
@@ -22,7 +21,7 @@ margin-top: 150px;
  }
 
  .movieTitle {
-     font-size: 20px;
+     font-size: 18px;
  }
 
  .cardForm {
@@ -62,14 +61,12 @@ margin-top: 150px;
 }
 
 .labelPayment {
-    font-size: 15px;
-   
+    font-size: 15px;  
 }
 
 .labelEmail {
     font-size: 15px;
-    padding-bottom: -10px;
-  
+    padding-bottom: -10px; 
 }
 
 #paymentMethod {
@@ -93,7 +90,7 @@ margin-top: 150px;
 }
 
 @media screen and (min-width: 768px) {
-
+    
         .wrapperCheckout {
         margin-top: 150px;
         }
@@ -107,7 +104,7 @@ margin-top: 150px;
             margin-bottom: 50px;
         }
          .movieTitle {
-            font-size: 25px;
+            font-size: 20px;
         }
 
         .info-wrapper {
@@ -119,19 +116,12 @@ margin-top: 150px;
         }
 
         .visaCard {
-           font-size: 30px;
-          
+           font-size: 30px; 
         }
 
         .payPalCard{
            font-size: 30px;
-        
-       }
-        
+       }     
 }
 
-@media screen and (min-width: 992px) { 
 
-   
- 
-}

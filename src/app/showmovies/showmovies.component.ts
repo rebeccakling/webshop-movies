@@ -19,5 +19,4 @@ export class ShowmoviesComponent implements OnInit {
     //fetchMovie är all data är värdet av hela getData funktionen.
     this.dataService.fetchMovies().subscribe(fetchMovie => this.moviesArray = fetchMovie);
   }
-
 }
