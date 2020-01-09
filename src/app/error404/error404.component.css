@@ -1,33 +1,32 @@
-.containerError { 
-    background-color: #bfbfbf;
-    margin-top: 180px;
-    margin-bottom: 200px;
+.containerError {
+  background-color: #bfbfbf;
+  margin-top: 180px;
+  margin-bottom: 200px;
 }
-  
+
 .iconError {
-    padding-top: 20px;
-    color: darkred;
-    font-size: 40px;
-    text-shadow: 1px 1px black;
+  padding-top: 20px;
+  color: darkred;
+  font-size: 40px;
+  text-shadow: 1px 1px black;
 }
 
 h1 {
-    font-size: 25px;
-    color: black;
-    font-weight: 900;
+  font-size: 25px;
+  color: black;
+  font-weight: 900;
 }
 p {
-    padding-top: 10px;
-    color: black;
+  padding-top: 10px;
+  color: black;
 }
 
 @media screen and (min-width: 768px) {
+  .iconError {
+    font-size: 45px;
+  }
 
-    .iconError {
-        font-size: 45px;
-    }
-    
-    h1 {
-        font-size: 30px;
-    }   
+  h1 {
+    font-size: 30px;
+  }
 }

@@ -1,22 +1,20 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { IMovie } from "../interfaces/IMovie";
-import { InteractionService } from "../services/interaction.service";
+import { Component, OnInit, Input } from '@angular/core'
+import { IMovie } from '../interfaces/IMovie'
+import { InteractionService } from '../services/interaction.service'
 
 @Component({
-  selector: "app-productpresentation",
-  templateUrl: "./productpresentation.component.html",
-  styleUrls: ["./productpresentation.component.css"]
+  selector: 'app-productpresentation',
+  templateUrl: './productpresentation.component.html',
+  styleUrls: ['./productpresentation.component.css'],
 })
 export class ProductpresentationComponent implements OnInit {
+  @Input() product: IMovie
 
-  @Input() product: IMovie;
+  constructor(private interactionService: InteractionService) {}
 
-  constructor(private interactionService: InteractionService) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addMovieToCart(product) {
-    this.interactionService.sendCart(product);
+    this.interactionService.sendCart(product)
   }
 }

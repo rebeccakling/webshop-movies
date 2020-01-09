@@ -1,25 +1,24 @@
 <main role="main">
   <article class="row orderContainer justify-content-center">
     <div class="col-10 col-md-8 col-lg-6 cardOrder">
-      <h1><i class="far fa-folder-open iconOrder "></i> Orderar </h1>
+      <h1><i class="far fa-folder-open iconOrder "></i> Orderar</h1>
 
       <div class="orders" *ngFor="let orders of extendedOrders">
-
         <div *ngFor="let name of orders.movieNames">
           <p>Film: {{ name }}</p>
         </div>
 
         <div *ngFor="let orderRow of orders.order.orderRows">
           <p>Produkt ID: {{ orderRow.productId }}</p>
-          <p> Antal: {{ orderRow.amount }}</p>
+          <p>Antal: {{ orderRow.amount }}</p>
         </div>
 
         <p>ID: {{ orders.order.id }}</p>
         <p>Företags ID: {{ orders.order.companyId }}</p>
         <p>Skapad av: {{ orders.order.createdBy }}</p>
         <p>Skapad: {{ orders.order.created }}</p>
-        <p>Totalpris: {{ orders.order.totalPrice }}:- </p>
-        <hr>
+        <p>Totalpris: {{ orders.order.totalPrice }}:-</p>
+        <hr />
       </div>
     </div>
   </article>

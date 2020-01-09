@@ -1,20 +1,20 @@
 <main role="main">
-    <li>
-        <div class='row justify-content-center text-center'>
-            <div class='frameMovies'>
-                <a [routerLink]='["/details", product.id]'>
-                    <img class='image' src='{{product.imageUrl}}' alt='{{product.name}}' />
-                </a>
-            </div>
-            <div class='col-12'>
-                <h2>{{product.name}}</h2>
-            </div>
-            <div class='col-12'>
-                <h3>{{product.price}}:- /st</h3>
-            </div>
-            <div class='col-12'>
-                <button type='button' (click)="addMovieToCart(product)" class="btn addToCard">Lägg till +</button>
-            </div>
-        </div>
-    </li>
+  <li>
+    <div class="row justify-content-center text-center">
+      <div class="frameMovies">
+        <a [routerLink]="['/details', product.id]">
+          <img class="image" src="{{ product.imageUrl }}" alt="{{ product.name }}" />
+        </a>
+      </div>
+      <div class="col-12">
+        <h2>{{ product.name }}</h2>
+      </div>
+      <div class="col-12">
+        <h3>{{ product.price }}:- /st</h3>
+      </div>
+      <div class="col-12">
+        <button type="button" (click)="addMovieToCart(product)" class="btn addToCard">Lägg till +</button>
+      </div>
+    </div>
+  </li>
 </main>

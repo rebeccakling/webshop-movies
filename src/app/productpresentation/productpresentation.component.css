@@ -1,47 +1,47 @@
 .frameMovies {
-    overflow: hidden;  
-    border: 1px solid white;
+  overflow: hidden;
+  border: 1px solid white;
 }
 
 .image {
-    object-fit: cover;
-    height: 250px;
-    text-align: center;
+  object-fit: cover;
+  height: 250px;
+  text-align: center;
 }
 
 h2 {
-    font-size: 1em;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: .5rem;
+  font-size: 1em;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.5rem;
 }
 
 h3 {
-    font-size: .8em;
+  font-size: 0.8em;
 }
 
 li {
-   list-style: none;
+  list-style: none;
 }
 
 .addToCard {
-    background-color: #cb7713;
-    color: white;
-    margin-bottom: 5px; 
-    margin-top: 5px;
-    font-size: 12px;
+  background-color: #cb7713;
+  color: white;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 12px;
 }
 
 @media screen and (min-width: 768px) {
-     .image {
-        height: 350px;  
-    }
-    .addToCard {
-        margin-bottom: 15px;     
-    }
-    .addToCard:hover {
-        font-size: 15px;
-    }
+  .image {
+    height: 350px;
+  }
+  .addToCard {
+    margin-bottom: 15px;
+  }
+  .addToCard:hover {
+    font-size: 15px;
+  }
 }

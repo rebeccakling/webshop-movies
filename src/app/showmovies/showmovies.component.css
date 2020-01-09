@@ -1,26 +1,25 @@
-.cardMovie{
-    min-height: 370px;
+.cardMovie {
+  min-height: 370px;
 }
 
 .containerMovies {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .mainContainerText {
-    margin-top: 130px;
+  margin-top: 130px;
 }
 
 .indexHeading {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 p {
-    font-style: italic; 
+  font-style: italic;
 }
 
 @media screen and (min-width: 768px) {
-
-    .indexHeading {
-        font-size: 30px;
-    }  
+  .indexHeading {
+    font-size: 30px;
+  }
 }

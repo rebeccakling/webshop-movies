@@ -1,49 +1,59 @@
 <header role="banner">
-
-    <nav class="nav">
-        <div class="container-fluid">
-            <div class='row justify-content-between'>
-
-                <div class='col-4 col-md-6 col-lg-6 text-left'>
-                    <a routerLink="">
-                        <img class='filmbutiken-logo' src='assets/images/movie-logo.jpg' alt='First slide' title='movie shop logo'>
-                    </a>
-                </div>
-
-                <div class='col-8 col-md-6 col-lg-4 text-right cartContainer'>
-
-                    <i class='fas fa-shopping-cart icon' (click)='cartToggle()'></i>
-                    <a routerLink='/admin'><i class="fas fa-user admin"></i></a>
-                    <div id="totalAmount">{{totalAmount}}</div>
-
-                    <div class='dropDownCart text-left hideCart'>
-                        <i class="fas fa-times closeDropDownIcon" (click)='cartToggle()'></i>
-                        <h2>Min varukorg:</h2>
-
-                        <div class="single-dropDown-item" *ngFor='let singleMovie of cart'>
-
-                            <div class="big-wrapper d-flex">
-                                <div class="image-wrapper">
-                                    <img class="dropDownImages" src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
-                                </div>
-
-                                <div class="info-wrapper">
-                                    <p class="movieTitleDropdown">{{singleMovie.movie.name}}</p>
-                                    <p><i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-                                        {{singleMovie.amount}}
-                                        <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i></p>
-                                    <p>{{singleMovie.movie.price}}:- /st</p>
-                                    <p>Total: {{singleMovie.totalPriceOfMovie}}:-</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <p>Total summa: <strong>{{totalSum}}:-</strong></p>
-                        <button *ngIf="totalSum > 0" type='buttonSendToCheckout' routerLink='/submit' class='btn buttonCheckout'>Gå
-                            vidare</button>
-                    </div>
-                </div>
-            </div>
+  <nav class="nav">
+    <div class="container-fluid">
+      <div class="row justify-content-between">
+        <div class="col-4 col-md-6 col-lg-6 text-left">
+          <a routerLink="">
+            <img
+              class="filmbutiken-logo"
+              src="assets/images/movie-logo.jpg"
+              alt="First slide"
+              title="movie shop logo"
+            />
+          </a>
         </div>
-    </nav>
+
+        <div class="col-8 col-md-6 col-lg-4 text-right cartContainer">
+          <i class="fas fa-shopping-cart icon" (click)="cartToggle()"></i>
+          <a routerLink="/admin"><i class="fas fa-user admin"></i></a>
+          <div id="totalAmount">{{ totalAmount }}</div>
+
+          <div class="dropDownCart text-left hideCart">
+            <i class="fas fa-times closeDropDownIcon" (click)="cartToggle()"></i>
+            <h2>Min varukorg:</h2>
+
+            <div class="single-dropDown-item" *ngFor="let singleMovie of cart">
+              <div class="big-wrapper d-flex">
+                <div class="image-wrapper">
+                  <img
+                    class="dropDownImages"
+                    src="{{ singleMovie.movie.imageUrl }}"
+                    alt="{{ singleMovie.movie.name }}"
+                  />
+                </div>
+
+                <div class="info-wrapper">
+                  <p class="movieTitleDropdown">{{ singleMovie.movie.name }}</p>
+                  <p>
+                    <i class="add fas fa-plus add" (click)="addMovie(singleMovie.movie)"></i>
+                    {{ singleMovie.amount }}
+                    <i class="subtract fas fa-minus minus" (click)="deleteMovie(singleMovie.movie.id)"></i>
+                  </p>
+                  <p>{{ singleMovie.movie.price }}:- /st</p>
+                  <p>Total: {{ singleMovie.totalPriceOfMovie }}:-</p>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <p>
+              Total summa: <strong>{{ totalSum }}:-</strong>
+            </p>
+            <button *ngIf="totalSum > 0" type="buttonSendToCheckout" routerLink="/submit" class="btn buttonCheckout">
+              Gå vidare
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </header>
