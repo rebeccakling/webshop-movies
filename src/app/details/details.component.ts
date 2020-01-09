@@ -18,14 +18,13 @@ export class DetailsComponent implements OnInit {
     imageUrl: '',
     year: 0,
     added: '',
-    productCategory: [],
-  }
 
-  constructor(
-    private route: ActivatedRoute,
-    private service: DataServiceService,
-    private interactionService: InteractionService
-  ) {}
+
+    productCategory: []
+  };
+
+  constructor(private route: ActivatedRoute, private service: DataServiceService, private interactionService: InteractionService) { }
+
 
   ngOnInit() {
     //När jag klickar på film (mer info) så skickar det id

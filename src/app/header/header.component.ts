@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+
   cartToggle() {
     if ($('.dropDownCart').hasClass('hideCart')) {
       $('.dropDownCart').removeClass('hideCart')
@@ -42,13 +43,17 @@ export class HeaderComponent implements OnInit {
     } else {
       $('.dropDownCart').addClass('hideCart')
       $('.dropDownCart').removeClass('showCart')
+
     }
   }
 
   countTotalPrice() {
-    this.totalSum = 0
 
+    this.totalSum = 0;
+ 
     for (let i = 0; i < this.cart.length; i++) {
+
+
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalSum += this.cart[i].movie.price * this.cart[i].amount
     }
@@ -65,6 +70,7 @@ export class HeaderComponent implements OnInit {
     this.totalAmount = 0
 
     for (let i = 0; i < this.cart.length; i++) {
+
       // this.totalSum blir värdet av föregående värde och beräkning på höger sida om likamed tecknet
       this.totalAmount += this.cart[i].amount
     }
