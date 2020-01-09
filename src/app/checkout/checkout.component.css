@@ -1,127 +1,124 @@
 .single-dropDown-item {
-    margin: 1em 0;
+  margin: 1em 0;
 }
 
 .wrapperCheckout {
-margin-top: 150px;
+  margin-top: 150px;
 }
 
 .imageCheckout {
-    max-height: 180px;
-    border: 1px solid white;
- }
+  max-height: 180px;
+  border: 1px solid white;
+}
 
- h1 {
-    font-size: 25px; 
- }
+h1 {
+  font-size: 25px;
+}
 
- h2 {
-    font-size: 25px; 
-    padding-top: 10px;
- }
+h2 {
+  font-size: 25px;
+  padding-top: 10px;
+}
 
- .movieTitle {
-     font-size: 18px;
- }
+.movieTitle {
+  font-size: 18px;
+}
 
- .cardForm {
-    background-color:#bfbfbf;
-    color: black;
- }
+.cardForm {
+  background-color: #bfbfbf;
+  color: black;
+}
 
 .add {
-    width: 20px;
-    height: 20px;
-    background-color: #bfbfbf;
-    border-radius: 50%;
-    color: black;
-    padding: 2.3px;
+  width: 20px;
+  height: 20px;
+  background-color: #bfbfbf;
+  border-radius: 50%;
+  color: black;
+  padding: 2.3px;
 }
 
 .minus {
-    width: 20px;
-    height: 20px;
-    background-color: #bfbfbf;
-    border-radius: 50%;
-    color: black;
-    padding: 2.3px;   
-} 
+  width: 20px;
+  height: 20px;
+  background-color: #bfbfbf;
+  border-radius: 50%;
+  color: black;
+  padding: 2.3px;
+}
 
 .info-wrapper {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .buttonCheckout {
-    background-color: #cb7713;
-    color: white;
-    margin-bottom: 5px; 
-    margin-top: 15px;
-    font-size: 12px;
-    margin-bottom: 20px;
+  background-color: #cb7713;
+  color: white;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
 
 .labelPayment {
-    font-size: 15px;  
+  font-size: 15px;
 }
 
 .labelEmail {
-    font-size: 15px;
-    padding-bottom: -10px; 
+  font-size: 15px;
+  padding-bottom: -10px;
 }
 
 #paymentMethod {
- color: gray;
- border: 1px solid black;
- font-size: 15px;
+  color: gray;
+  border: 1px solid black;
+  font-size: 15px;
 }
 
 .errorMessage {
-    color: darkred;
+  color: darkred;
 }
 
 .visaCard {
-    font-size: 25px;
-    color: gray;
+  font-size: 25px;
+  color: gray;
 }
-.payPalCard{
-    font-size: 25px;
-    color: gray;
-    padding-left: 10px;
+.payPalCard {
+  font-size: 25px;
+  color: gray;
+  padding-left: 10px;
 }
 
 @media screen and (min-width: 768px) {
-    
-        .wrapperCheckout {
-        margin-top: 150px;
-        }
+  .wrapperCheckout {
+    margin-top: 150px;
+  }
 
-        .imageCheckout {
-            max-height: 250px;
-        }
+  .imageCheckout {
+    max-height: 250px;
+  }
 
-        h1 {
-            font-size: 35px;
-            margin-bottom: 50px;
-        }
-         .movieTitle {
-            font-size: 20px;
-        }
+  h1 {
+    font-size: 35px;
+    margin-bottom: 50px;
+  }
+  .movieTitle {
+    font-size: 20px;
+  }
 
-        .info-wrapper {
-           padding-left: 25px;
-        }
-       
-        .buttonCheckout {
-            font-size: 15px; 
-        }
+  .info-wrapper {
+    padding-left: 25px;
+  }
 
-        .visaCard {
-           font-size: 30px; 
-        }
+  .buttonCheckout {
+    font-size: 15px;
+  }
 
-        .payPalCard{
-           font-size: 30px;
-       }     
+  .visaCard {
+    font-size: 30px;
+  }
+
+  .payPalCard {
+    font-size: 30px;
+  }
 }
-
-

@@ -1,32 +1,37 @@
-<main role='main'>
-
-  <div class='row wrapperCheckout justify-content-center'>
+<main role="main">
+  <div class="row wrapperCheckout justify-content-center">
     <div class="col-10 text-center">
       <h1>Kassa</h1>
-      <hr>
+      <hr />
     </div>
   </div>
 
-  <div class="row justify-content-center single-dropDown-item" *ngFor='let singleMovie of cart'>
+  <div class="row justify-content-center single-dropDown-item" *ngFor="let singleMovie of cart">
     <div class="col-5 col-md-3 col-lg-2 big-wrapper d-flex">
       <div>
-        <img class="imageCheckout" src="{{singleMovie.movie.imageUrl}}" alt='{{singleMovie.movie.name}}'>
+        <img class="imageCheckout" src="{{ singleMovie.movie.imageUrl }}" alt="{{ singleMovie.movie.name }}" />
       </div>
     </div>
 
     <div class="col-6 col-md-3 col-lg-2 info-wrapper">
-      <p class="movieTitle">{{singleMovie.movie.name}}</p>
-      <p>{{singleMovie.movie.price}}:- /st</p>
-      <p><i class='add fas fa-plus add' (click)='addMovie(singleMovie.movie)'></i>
-      {{singleMovie.amount}}
-      <i class='subtract fas fa-minus minus' (click)='deleteMovie(singleMovie.movie.id)'></i></p>
-      <p><strong>Total: {{singleMovie.totalPriceOfMovie}}:-</strong></p>
+      <p class="movieTitle">{{ singleMovie.movie.name }}</p>
+      <p>{{ singleMovie.movie.price }}:- /st</p>
+      <p>
+        <i class="add fas fa-plus add" (click)="addMovie(singleMovie.movie)"></i>
+        {{ singleMovie.amount }}
+        <i class="subtract fas fa-minus minus" (click)="deleteMovie(singleMovie.movie.id)"></i>
+      </p>
+      <p>
+        <strong>Total: {{ singleMovie.totalPriceOfMovie }}:-</strong>
+      </p>
     </div>
   </div>
 
-  <div class='row justify-content-center'>
+  <div class="row justify-content-center">
     <div class="col-10 text-center">
-      <p class="totalSum"><strong>Total summa: {{totalSum}}:-</strong></p>
+      <p class="totalSum">
+        <strong>Total summa: {{ totalSum }}:-</strong>
+      </p>
     </div>
   </div>
 
@@ -37,9 +42,14 @@
 
         <form [formGroup]="orderForm" (ngSubmit)="postOrder()" #formDir="ngForm">
           <p><label class="labelEmail" for="email">E-mailadress</label></p>
-          <p><input name="email" type="text" formControlName="emailAdress"></p>
+          <p><input name="email" type="text" formControlName="emailAdress" /></p>
 
-          <div *ngIf="orderForm.get('emailAdress').invalid && (formDir.submitted || orderForm.get('emailAdress').dirty || orderForm.get('emailAdress').touched)">
+          <div
+            *ngIf="
+              orderForm.get('emailAdress').invalid &&
+              (formDir.submitted || orderForm.get('emailAdress').dirty || orderForm.get('emailAdress').touched)
+            "
+          >
             <div *ngIf="orderForm.get('emailAdress').errors.required">
               <p class="errorMessage">Du måste fylla i mejladress.</p>
             </div>
@@ -61,7 +71,8 @@
             <div *ngIf="orderForm.get('paymentMethod').errors.required">
               <p class="errorMessage">Du måste välja betalningsmetod</p>
             </div>
-          </div><br>
+          </div>
+          <br />
 
           <button class="btn buttonCheckout" type="submit">Slutför ditt köp</button>
         </form>
